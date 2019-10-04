@@ -42,7 +42,6 @@
 		float: left;
 		width: 20%;
 		color: #FFFFFF;
-		background-color: #000000;
 		text-align: center;
 		height: 50px;
 		line-height: 50px;

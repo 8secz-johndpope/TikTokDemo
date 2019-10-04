@@ -132,7 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {return __webpack_require__.e(/*! import() | components/tab */ "components/tab").then(__webpack_require__.bind(null, /*! ../../components/tab.vue */ 30));};var firstNav = function firstNav() {return __webpack_require__.e(/*! import() | components/first-nav */ "components/first-nav").then(__webpack_require__.bind(null, /*! ../../components/first-nav.vue */ 41));};var videoList = function videoList() {return __webpack_require__.e(/*! import() | components/video-list */ "components/video-list").then(__webpack_require__.bind(null, /*! ../../components/video-list.vue */ 49));};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {return __webpack_require__.e(/*! import() | components/tab */ "components/tab").then(__webpack_require__.bind(null, /*! ../../components/tab.vue */ 30));};var firstNav = function firstNav() {return __webpack_require__.e(/*! import() | components/first-nav */ "components/first-nav").then(__webpack_require__.bind(null, /*! ../../components/first-nav.vue */ 41));};var videoList = function videoList() {return Promise.all(/*! import() | components/video-list */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/video-list")]).then(__webpack_require__.bind(null, /*! ../../components/video-list.vue */ 49));};var _default =
 
 
 

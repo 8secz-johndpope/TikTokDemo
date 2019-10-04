@@ -8523,7 +8523,29 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "static/media/1-1.817df806.mp4";
+module.exports = __webpack_require__.p + "static/media/1-1.57a9b30d.mp4";
+
+/***/ }),
+
+/***/ 66:
+/*!***********************************************!*\
+  !*** C:/code/TikTokDemo/static/video/1-2.mp4 ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/1-2.43d8ebea.mp4";
+
+/***/ }),
+
+/***/ 67:
+/*!***********************************************!*\
+  !*** C:/code/TikTokDemo/static/video/1-3.mp4 ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/1-3.3025569c.mp4";
 
 /***/ }),
 
