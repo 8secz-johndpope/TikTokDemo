@@ -1,1 +1,1 @@
-<view class="content">我是首页<tab vue-id="1" bind:__l="__l"></tab></view>
+<view class="content"><first-nav vue-id="1" bind:__l="__l"></first-nav><tab vue-id="2" bind:__l="__l"></tab></view>

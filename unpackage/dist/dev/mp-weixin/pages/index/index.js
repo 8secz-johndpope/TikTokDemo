@@ -132,7 +132,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {return __webpack_require__.e(/*! import() | components/tab */ "components/tab").then(__webpack_require__.bind(null, /*! ../../components/tab.vue */ 30));};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {return __webpack_require__.e(/*! import() | components/tab */ "components/tab").then(__webpack_require__.bind(null, /*! ../../components/tab.vue */ 30));};var firstNav = function firstNav() {return __webpack_require__.e(/*! import() | components/first-nav */ "components/first-nav").then(__webpack_require__.bind(null, /*! ../../components/first-nav.vue */ 41));};var _default =
+
 
 
 
@@ -143,7 +144,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 {
   components: {
-    tab: tab },
+    tab: tab,
+    firstNav: firstNav },
 
   data: function data() {
     return {
