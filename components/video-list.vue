@@ -4,7 +4,7 @@
 			<swiper :vertical="true" class="swiper">
 				<swiper-item v-for="item of list" :key="item.id">
 					<view class="swiper-item">
-						<video-player :src='item.src'></video-player>
+						<video-player :videoItem="item"></video-player>
 					</view>
 				</swiper-item>
 			</swiper>
@@ -19,21 +19,12 @@
 		components: {
 			videoPlayer
 		},
+		props:[
+			"list" // 监听index.vue中list的变化
+		],
 		data() {
 			return {
-				list: [{
-						id: 1,
-						src: require('../static/video/1-1.mp4')
-					},
-					{
-						id: 2,
-						src: require('../static/video/1-2.mp4')
-					},
-					{
-						id: 3,
-						src: require('../static/video/1-3.mp4')
-					}
-				]
+				
 			};
 		}
 	}

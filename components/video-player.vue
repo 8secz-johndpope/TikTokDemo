@@ -1,13 +1,15 @@
 <template>
 	<view class="video-player">
-		<video :src="src" :controls="false" class="video" :loop="true"></video>
+		<!-- <video :src="src" :controls="false" class="video" :loop="true"></video> -->
+		{{videoItem.id}}
+		{{videoItem.author}}
 	</view>
 </template>
 
 <script>
 	export default {
 		props: [
-			'src'
+			'videoItem'
 		],
 		data() {
 			return {
