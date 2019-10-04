@@ -2,6 +2,7 @@
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
     "tab": "/components/tab",
-    "first-nav": "/components/first-nav"
+    "first-nav": "/components/first-nav",
+    "video-list": "/components/video-list"
   }
 }
