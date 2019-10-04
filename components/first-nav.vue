@@ -34,7 +34,7 @@
 		left: 0;
 		line-height: 35px;
 		margin: 0 auto;
-		z-index: 20;
+		z-index: 10;
 	}
 
 	.icon {
@@ -45,7 +45,6 @@
 		width: 20%;
 		text-align: center;
 		font-size: 20px;
-
 	}
 
 	.middle {

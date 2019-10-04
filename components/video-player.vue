@@ -1,8 +1,6 @@
 <template>
 	<view class="video-player">
-		<!-- <video :src="src" :controls="false" class="video" :loop="true"></video> -->
-		{{videoItem.id}}
-		{{videoItem.author}}
+		<video :src="fullSrc(videoItem.src)" :controls="false" class="video" :loop="false"></video>
 	</view>
 </template>
 
@@ -15,6 +13,14 @@
 			return {
 
 			};
+		},
+		computed: {
+
+		},
+		methods: {
+			fullSrc(fileName) {
+				return `http://localhost/${fileName}.mp4`;
+			}
 		}
 	}
 </script>

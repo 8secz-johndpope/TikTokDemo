@@ -19,12 +19,12 @@
 		components: {
 			videoPlayer
 		},
-		props:[
+		props: [
 			"list" // 监听index.vue中list的变化
 		],
 		data() {
 			return {
-				
+
 			};
 		}
 	}
@@ -49,6 +49,6 @@
 	.swiper-item {
 		width: 100%;
 		height: 100%;
-		z-index: 19;
+		z-index: 0;
 	}
 </style>
