@@ -1,0 +1,1 @@
+<view class="content">我是首页<tab vue-id="1" bind:__l="__l"></tab></view>
