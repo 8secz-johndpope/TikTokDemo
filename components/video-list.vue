@@ -6,6 +6,9 @@
 					<view class="swiper-item">
 						<video-player :videoItem="item"></video-player>
 					</view>
+					<view class="video-info-box">
+						<video-info :videoItem="item"></video-info>
+					</view>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -14,10 +17,12 @@
 
 <script>
 	import videoPlayer from './video-player.vue'
+	import videoInfo from './video-info.vue'
 
 	export default {
 		components: {
-			videoPlayer
+			videoPlayer,
+			videoInfo
 		},
 		props: [
 			"list" // 监听index.vue中list的变化
@@ -50,5 +55,12 @@
 		width: 100%;
 		height: 100%;
 		z-index: 0;
+	}
+
+	.video-info-box {
+		z-index: 30;
+		position: absolute;
+		bottom: 50px;
+		left: 10px;
 	}
 </style>
