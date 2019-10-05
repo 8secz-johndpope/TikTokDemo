@@ -9,6 +9,9 @@
 					<view class="video-info-box">
 						<video-info :videoItem="item"></video-info>
 					</view>
+					<view class="video-opt-box">
+						<video-opt :videoItem="item"></video-opt>
+					</view>
 				</swiper-item>
 			</swiper>
 		</view>
@@ -18,11 +21,13 @@
 <script>
 	import videoPlayer from './video-player.vue'
 	import videoInfo from './video-info.vue'
+	import videoOpt from './video-opt.vue'
 
 	export default {
 		components: {
 			videoPlayer,
-			videoInfo
+			videoInfo,
+			videoOpt
 		},
 		props: [
 			"list" // 监听index.vue中list的变化
@@ -62,5 +67,12 @@
 		position: absolute;
 		bottom: 50px;
 		left: 10px;
+	}
+
+	.video-opt-box {
+		z-index: 30;
+		position: absolute;		
+		bottom: 50px;
+		right: 10px;
 	}
 </style>
