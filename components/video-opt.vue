@@ -3,22 +3,25 @@
 		<view class="author-img">
 			<!-- TODO 从服务器获取头像 -->
 			<image src="../static/1-1.jpeg" mode="" class="img"></image>
+			<view class="iconfont iconjiahao add" @click="star" v-show="!isStar">
+				<!-- 关注&取关按钮 -->
+			</view>
 		</view>
 
 		<!-- 点赞 -->
-		<view class="iconfont iconaixin"></view>
+		<view class="iconfont iconaixin btn" @click="love" :style="loveColor"></view>
 		<view class="number">
 			{{videoItem.loveNumber}}
 		</view>
 
 		<!-- 评论 -->
-		<view class="iconfont iconpinglun"></view>
+		<view class="iconfont iconpinglun btn"></view>
 		<view class="number">
 			{{videoItem.commentNumber}}
 		</view>
 
 		<!-- 分享 -->
-		<view class="iconfont iconfenxiang"></view>
+		<view class="iconfont iconfenxiang btn"></view>
 		<view class="number">
 			{{videoItem.shareNumber}}
 		</view>
@@ -35,8 +38,21 @@
 		],
 		data() {
 			return {
-
+				isStar: false,
+				isLove: false,
+				loveColor: 'color:white',
 			};
+		},
+		methods: {
+			star() {
+				console.log('like star');
+				this.isStar = !this.isStar;
+			},
+			love() {				
+				this.isLove = !this.isLove;
+				this.loveColor = this.isLove ? 'color:red' : 'color:white';
+				console.log(this.loveColor);
+			}
 		}
 	}
 </script>
@@ -64,6 +80,10 @@
 		border: 2px solid #FFFFFF;
 	}
 
+	.btn {
+		font-size: 32px;
+	}
+
 	.around {
 		margin-top: 15px;
 	}
@@ -80,5 +100,22 @@
 		100% {
 			transform: rotate(360deg)
 		}
+	}
+
+	.author-img {
+		position: relative;
+	}
+
+	.add {
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+		background-color: red;
+		position: absolute;
+		bottom: 0;
+		left: 16px;
+		text-align: center;
+		line-height: 18px;
+		font-size: 10px;
 	}
 </style>
