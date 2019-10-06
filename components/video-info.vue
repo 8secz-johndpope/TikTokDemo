@@ -6,8 +6,11 @@
 		<view class="title">
 			{{videoItem.title}}
 		</view>
-		<view class="music">
-			{{videoItem.music}}
+		<view class="music-box">
+			<view class="music">
+				{{ videoItem.music }}
+				<span v-if="videoItem.musicAuthor"> @ {{ videoItem.musicAuthor }}</span>
+			</view>
 		</view>
 	</view>
 </template>
@@ -50,5 +53,22 @@
 		height: 35px;
 		line-height: 35px;
 		font-size: 12px;
+		animation: XLeft 4s linear 0.2s infinite;
+		width: 150px;
+	}
+
+	.music-box {
+		width: 100px;
+		overflow: hidden;
+	}
+
+	@keyframes XLeft {
+		0% {
+			transform: translate3d(80%, 0, 0);
+		}
+
+		100% {
+			transform: translate3d(-80%, 0, 0);
+		}
 	}
 </style>

@@ -65,9 +65,9 @@
 	}
 
 	.around {
-		margin-top: 15px;		
+		margin-top: 15px;
 	}
-	
+
 	.rotate {
 		animation: rotate 1.5s linear 0.2s infinite;
 	}
@@ -81,5 +81,4 @@
 			transform: rotate(360deg)
 		}
 	}
-	
 </style>

@@ -7,8 +7,10 @@
 			"loveNumber": 123,
 			"commentNumber": 222,
 			"shareNumber": 333,
-			"music": "听妈妈的话"
+			"music": "听妈妈的话",
+			"musicAuthor": "周杰伦"
 		},
+		
 		{
 			"id": 2,
 			"src": "2-2",
@@ -17,7 +19,8 @@
 			"loveNumber": 234,
 			"commentNumber": 666,
 			"shareNumber": 12,
-			"music": "我真的好饿"
+			"music": "我真的好饿",
+			"musicAuthor": "洛天依"
 		},
 		{
 			"id": 3,
@@ -27,7 +30,8 @@
 			"loveNumber": 999,
 			"commentNumber": 9999,
 			"shareNumber": 999,
-			"music": "安眠曲"
+			"music": "安眠曲",
+			"musicAuthor": "钢琴曲"
 		}
 	]
 }
