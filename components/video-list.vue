@@ -2,9 +2,9 @@
 	<view class="video-list">
 		<view class="swiper-box">
 			<swiper :vertical="true" class="swiper" @change="change" @touchstart="touchStart" @touchend="touchEnd">
-				<swiper-item v-for="item of list" :key="item.id">
+				<swiper-item v-for="(item,index) of list" :key="item.id">
 					<view class="swiper-item">
-						<video-player :videoItem="item" ref="player" @playerDblClick="playerDblClick"></video-player>
+						<video-player :videoItem="item" ref="player" @playerDblClick="playerDblClick" :index='index'></video-player>
 					</view>
 					<view class="video-info-box">
 						<video-info :videoItem="item"></video-info>

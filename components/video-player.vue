@@ -1,6 +1,8 @@
 <template>
 	<view class="video-player">
-		<video id="myVideo" :src="fullSrc(videoItem.src)" @click='click' :controls="false" class="video" :loop="false"></video>
+		<video id="myVideo" :src="fullSrc(videoItem.src)" @click='click' :controls="false" class="video" :loop="false"
+		 :autoplay="autoplay">
+		</video>
 	</view>
 </template>
 
@@ -9,7 +11,8 @@
 
 	export default {
 		props: [
-			'videoItem'
+			'videoItem',
+			'index'
 		],
 		data() {
 			return {
@@ -18,7 +21,9 @@
 			}
 		},
 		computed: {
-
+			autoplay() {
+				return this.index === 0
+			}
 		},
 		methods: {
 			fullSrc(fileName) {
