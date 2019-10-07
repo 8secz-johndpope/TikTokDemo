@@ -64,7 +64,7 @@
 
 				this.$refs.player[this.currentIndex].play(true);
 			},
-			playerDblClick(){
+			playerDblClick() {
 				this.$refs.opt[0].dblLove();
 			}
 		}
