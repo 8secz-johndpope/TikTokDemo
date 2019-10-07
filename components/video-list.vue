@@ -59,7 +59,7 @@
 				this.$refs.player[lastIndex].pause();
 				// console.log(lastIndex);
 
-				this.$refs.player[this.currentIndex].play();
+				this.$refs.player[this.currentIndex].play(true);
 			}
 		}
 	}
