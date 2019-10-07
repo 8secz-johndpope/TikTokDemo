@@ -51,6 +51,11 @@
 			love() {
 				this.isLove = !this.isLove;
 				this.loveColor = this.isLove ? 'color:red' : 'color:white';
+			},
+			dblLove() {
+				if (!this.isLove) { // 未点赞时点赞
+					this.love();
+				}
 			}
 		}
 	}

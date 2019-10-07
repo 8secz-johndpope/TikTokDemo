@@ -4,13 +4,13 @@
 			<swiper :vertical="true" class="swiper" @change="change" @touchstart="touchStart" @touchend="touchEnd">
 				<swiper-item v-for="item of list" :key="item.id">
 					<view class="swiper-item">
-						<video-player :videoItem="item" ref="player"></video-player>
+						<video-player :videoItem="item" ref="player" @playerDblClick="playerDblClick"></video-player>
 					</view>
 					<view class="video-info-box">
 						<video-info :videoItem="item"></video-info>
 					</view>
 					<view class="video-opt-box">
-						<video-opt :videoItem="item"></video-opt>
+						<video-opt :videoItem="item" ref="opt"></video-opt>
 					</view>
 				</swiper-item>
 			</swiper>
@@ -49,6 +49,8 @@
 			touchEnd(res) {
 				this.pageEndY = res.changedTouches[0].pageY;
 
+				if (Math.abs(this.pageEndY - this.pageStartY) < 1) return; // 忽略微小滑动
+
 				let lastIndex = this.currentIndex; // 之前的index
 
 				if (this.pageEndY > this.pageStartY) { // 下拉
@@ -56,10 +58,14 @@
 				} else if (this.pageEndY < this.pageStartY) { // 上推
 					lastIndex--;
 				}
-				this.$refs.player[lastIndex].pause();
+
+				if (lastIndex >= 0) this.$refs.player[lastIndex].pause();
 				// console.log(lastIndex);
 
 				this.$refs.player[this.currentIndex].play(true);
+			},
+			playerDblClick(){
+				this.$refs.opt[0].dblLove();
 			}
 		}
 	}

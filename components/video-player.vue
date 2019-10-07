@@ -5,13 +5,16 @@
 </template>
 
 <script>
+	let timer = null;
+
 	export default {
 		props: [
 			'videoItem'
 		],
 		data() {
 			return {
-				isPlaying: false
+				isPlaying: false,
+				isDblClick: true,
 			}
 		},
 		computed: {
@@ -34,17 +37,26 @@
 			},
 
 			click() {
-				if (this.isPlaying) {
-					this.pause()
-				} else {
-					this.play()
-				}
-				this.isPlaying = !this.isPlaying
+				clearTimeout(timer)
+				this.isDblClick = !this.isDblClick;
+				timer = setTimeout(() => {
+					if (this.isDblClick) { // 双击
+						this.$emit('playerDblClick');
+					} else { // 单击
+						if (this.isPlaying) {
+							this.pause()
+						} else {
+							this.play()
+						}
+						this.isPlaying = !this.isPlaying
+					}
+
+					this.isDblClick = true;
+				}, 300);
 			}
 		},
 		onReady() {
 			this.videoContext = uni.createVideoContext('myVideo', this)
-			console.log(this.videoContext)
 		}
 	}
 </script>
