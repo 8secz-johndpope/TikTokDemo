@@ -1,6 +1,6 @@
 <template>
 	<view class="video-player">
-		<video :src="fullSrc(videoItem.src)" :controls="false" class="video" :loop="false"></video>
+		<video id="myVideo" :src="fullSrc(videoItem.src)" :controls="false" class="video" :loop="false"></video>
 	</view>
 </template>
 
@@ -20,7 +20,20 @@
 		methods: {
 			fullSrc(fileName) {
 				return `http://localhost/${fileName}.mp4`;
+			},
+
+			play() {
+				this.videoContext.seek(0); // 跳转至开头播放
+				this.videoContext.play();
+			},
+
+			pause() {
+				this.videoContext.pause();
 			}
+		},
+		onReady() {
+			this.videoContext = uni.createVideoContext('myVideo', this)
+			console.log(this.videoContext);
 		}
 	}
 </script>

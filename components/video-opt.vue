@@ -48,10 +48,9 @@
 				console.log('like star');
 				this.isStar = !this.isStar;
 			},
-			love() {				
+			love() {
 				this.isLove = !this.isLove;
 				this.loveColor = this.isLove ? 'color:red' : 'color:white';
-				console.log(this.loveColor);
 			}
 		}
 	}

@@ -1,10 +1,10 @@
 <template>
 	<view class="video-list">
 		<view class="swiper-box">
-			<swiper :vertical="true" class="swiper">
+			<swiper :vertical="true" class="swiper" @change="change" @touchstart="touchStart" @touchend="touchEnd">
 				<swiper-item v-for="item of list" :key="item.id">
 					<view class="swiper-item">
-						<video-player :videoItem="item"></video-player>
+						<video-player :videoItem="item" ref="player"></video-player>
 					</view>
 					<view class="video-info-box">
 						<video-info :videoItem="item"></video-info>
@@ -34,8 +34,33 @@
 		],
 		data() {
 			return {
-
+				pageStartY: 0,
+				pageEndY: 0,
+				currentIndex: 0,
 			};
+		},
+		methods: {
+			change(res) {
+				this.currentIndex = res.detail.current;
+			},
+			touchStart(res) {
+				this.pageStartY = res.changedTouches[0].pageY;
+			},
+			touchEnd(res) {
+				this.pageEndY = res.changedTouches[0].pageY;
+
+				let lastIndex = this.currentIndex; // 之前的index
+
+				if (this.pageEndY > this.pageStartY) { // 下拉
+					lastIndex++;
+				} else if (this.pageEndY < this.pageStartY) { // 上推
+					lastIndex--;
+				}
+				this.$refs.player[lastIndex].pause();
+				// console.log(lastIndex);
+
+				this.$refs.player[this.currentIndex].play();
+			}
 		}
 	}
 </script>
@@ -71,7 +96,7 @@
 
 	.video-opt-box {
 		z-index: 30;
-		position: absolute;		
+		position: absolute;
 		bottom: 50px;
 		right: 10px;
 	}
