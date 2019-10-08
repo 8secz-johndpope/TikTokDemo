@@ -21,7 +21,7 @@
 			</view>
 		</view>
 
-		<view class="citys" v-for='(item,index) of citys ' :key="index">
+		<view class="citys" v-for='(item,index) of citys' :key="index">
 			<view class="initial">
 				{{item.initial}}
 			</view>
@@ -34,10 +34,10 @@
 
 <script>
 	export default {
+		props: ['citys'],
 		data() {
 			return {
 				hotList: [],
-				citys: []
 			};
 		},
 		created() {
@@ -45,12 +45,6 @@
 				url: "http://localhost/hot_city.json",
 				success: (res) => {
 					this.hotList = res.data.list;
-				}
-			})
-			uni.request({
-				url: "http://localhost/city.json",
-				success: (res) => {
-					this.citys = res.data.city;
 				}
 			})
 		}
