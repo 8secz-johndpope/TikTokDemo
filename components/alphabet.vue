@@ -1,7 +1,7 @@
 <template>
 	<view class="alphabet">
 		<view class="list">
-			<view class="item" v-for="(item,index) of citys " :key="index">
+			<view class="item" v-for="(item,index) of citys " :key="index" @click="click(item.initial)">
 				{{item.initial}}
 			</view>
 		</view>
@@ -16,10 +16,15 @@
 			return {
 
 			};
+		},
+		methods: {
+			click(alphabet) {
+				this.$emit('change' , alphabet);
+			}
 		}
 	}
 </script>
-
+ 
 <style>
 	.alphabet {
 		position: fixed;
@@ -37,7 +42,7 @@
 	.item {
 		text-align: right;
 		line-height: 20px;
-		font-size: 8px;
+		font-size: 10px;
 		margin-right: 1px;
 		color: #AAAAAA;
 	}

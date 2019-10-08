@@ -1,43 +1,45 @@
 <template>
 	<view class="city-list">
-		<view class="box">
-			<view class="title">
-				<icon class="iconfont icondingwei" style="color: #007AFF;"></icon>
-				自动定位
-			</view>
-			<view class="currentCity">
-				上海
-			</view>
-		</view>
-		<view class="box">
-			<view class="title">
-				<icon class="iconfont icondingwei" style="color: #DD524D;"></icon>
-				抖音热门城市
-			</view>
-			<view class="hotList">
-				<view class="item" v-for="(item,index) of hotList" :key="index">
-					{{item}}
+		<scroll-view scroll-y="true" class="scrolly" :scroll-into-view="letter">
+			<view class="box">
+				<view class="title">
+					<icon class="iconfont icondingwei" style="color: #007AFF;"></icon>
+					自动定位
+				</view>
+				<view class="currentCity">
+					上海
 				</view>
 			</view>
-		</view>
+			<view class="box">
+				<view class="title">
+					<icon class="iconfont icondingwei" style="color: #DD524D;"></icon>
+					抖音热门城市
+				</view>
+				<view class="hotList">
+					<view class="item" v-for="(item,index) of hotList" :key="index">
+						{{item}}
+					</view>
+				</view>
+			</view>
 
-		<view class="citys" v-for='(item,index) of citys' :key="index">
-			<view class="initial">
-				{{item.initial}}
+			<view class="citys" v-for='(item, index) of citys' :key="index">
+				<view class="initial" :id="item.initial">
+					{{item.initial}}
+				</view>
+				<view v-for="(c, i) of item.list" :key="i" class="cityName">
+					{{c.name}}
+				</view>
 			</view>
-			<view v-for="(c,i) of item.list" :key="i" class="cityName">
-				{{c.name}}
-			</view>
-		</view>
+		</scroll-view>
 	</view>
 </template>
 
 <script>
 	export default {
-		props: ['citys'],
+		props: ['citys', 'letter'],
 		data() {
 			return {
-				hotList: [],
+				hotList: []
 			};
 		},
 		created() {
@@ -47,14 +49,19 @@
 					this.hotList = res.data.list;
 				}
 			})
-		}
+		},
 	}
 </script>
 
 <style>
+	.scrolly {
+		height: 100%;
+	}
+
 	.city-list {
 		width: 100%;
 		background: #000000;
+		height: 100%;
 	}
 
 	.box {

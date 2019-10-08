@@ -1,8 +1,8 @@
 <template>
 	<view class="selectCity">
 		<select-header></select-header>
-		<alphabet :citys="citys"></alphabet>
-		<city-list :citys="citys"></city-list>
+		<alphabet :citys="citys" @change='alphabetChange'></alphabet>
+		<city-list :citys="citys" :letter="letter" ></city-list>
 	</view>
 </template>
 
@@ -18,11 +18,14 @@
 		},
 		data() {
 			return {
-				citys: []
+				citys: [],
+				letter: '',
 			}
 		},
 		methods: {
-
+			alphabetChange(alphabet){
+				this.letter = alphabet;
+			}
 		},
 		created() {
 			uni.request({
@@ -40,5 +43,6 @@
 		width: 100%;
 		background: #000000;
 		color: #FFFFFF;
+		height: 100%;
 	}
 </style>
