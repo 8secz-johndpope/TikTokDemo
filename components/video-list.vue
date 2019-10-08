@@ -59,8 +59,7 @@
 					lastIndex--;
 				}
 
-				if (lastIndex >= 0) this.$refs.player[lastIndex].pause();
-				// console.log(lastIndex);
+				if (lastIndex >= 0) this.$refs.player[lastIndex].pause
 
 				this.$refs.player[this.currentIndex].play(true);
 			},

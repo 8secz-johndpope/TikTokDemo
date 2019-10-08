@@ -45,7 +45,6 @@
 		},
 		methods: {
 			star() {
-				console.log('like star');
 				this.isStar = !this.isStar;
 			},
 			love() {

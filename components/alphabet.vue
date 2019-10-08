@@ -36,7 +36,7 @@
 					if (this.touch) {
 						const distanceFromA = res.changedTouches[0].pageY - 150;
 						const index = Math.floor(distanceFromA / 20);
-						// console.log(this.citys[index].initial);
+
 						if (index >= 0 && index < this.citys.length)
 							this.$emit('change', this.citys[index].initial);
 					}
