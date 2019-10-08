@@ -1,10 +1,10 @@
 <script>
-	import './static/iconfont.css' 
+	import './static/iconfont.css'
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
 			uni.hideTabBar({
-				
+
 			})
 		},
 		onShow: function() {
@@ -18,7 +18,8 @@
 
 <style>
 	/*每个页面公共css */
-	html,body{
+	html,
+	body {
 		width: 100%;
 		height: 100%;
 	}
