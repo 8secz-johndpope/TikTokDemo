@@ -8,16 +8,25 @@
 			<view class="currentCity">
 				上海
 			</view>
-			<view class="box">
-				<view class="title">
-					<icon class="iconfont icondingwei" style="color: #DD524D;"></icon>
-					抖音热门城市
+		</view>
+		<view class="box">
+			<view class="title">
+				<icon class="iconfont icondingwei" style="color: #DD524D;"></icon>
+				抖音热门城市
+			</view>
+			<view class="hotList">
+				<view class="item" v-for="(item,index) of hotList" :key="index">
+					{{item}}
 				</view>
-				<view class="hotList">
-					<view class="item" v-for="(item,index) of list" :key="index">
-						{{item}}
-					</view>
-				</view>
+			</view>
+		</view>
+
+		<view class="citys" v-for='(item,index) of citys ' :key="index">
+			<view class="initial">
+				{{item.initial}}
+			</view>
+			<view v-for="(c,i) of item.list" :key="i" class="cityName">
+				{{c.name}}
 			</view>
 		</view>
 	</view>
@@ -27,14 +36,21 @@
 	export default {
 		data() {
 			return {
-				list: []
+				hotList: [],
+				citys: []
 			};
 		},
 		created() {
 			uni.request({
 				url: "http://localhost/hot_city.json",
 				success: (res) => {
-					this.list = res.data.list;
+					this.hotList = res.data.list;
+				}
+			})
+			uni.request({
+				url: "http://localhost/city.json",
+				success: (res) => {
+					this.citys = res.data.city;
 				}
 			})
 		}
@@ -83,4 +99,22 @@
 		margin-bottom: 10px;
 		text-align: center;
 	}
+
+	.initial {
+		height: 25px;
+		line-height: 25px;
+		background: #000000;
+		padding-left: 10px;
+		font-size: 14px;
+	}
+
+	.cityName {
+		background: #222222;
+		height: 40px;
+		line-height: 40px;
+		padding-left: 10px;
+		font-size: 12px;
+	}
+
+	.citys {}
 </style>
