@@ -4,12 +4,12 @@
 		</view>
 
 		<view class="middle">
-			<view class="text">
+			<navigator open-type="switchTab" class="text" url="/pages/index/index">
 				推荐
-			</view>
-			<view class="text">
+			</navigator>
+			<navigator open-type="navigate" class="text" url="/pages/city/city">
 				同城
-			</view>
+			</navigator>
 
 		</view>
 	</view>

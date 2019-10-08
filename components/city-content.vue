@@ -4,13 +4,13 @@
 			<view class="iconfont icondingwei conlation-left">
 				自动定位: 上海
 			</view>
-			<view class="conlation-right ">
+			<navigator url="/pages/selectCity/selectCity" class="conlation-right">
 				切换 <text class="iconfont iconyoujiantou"></text>
-			</view>
+			</navigator>
 		</view>
 
 		<view class="video-list">
-			<span v-for="i in 10" >
+			<span v-for="(i,index) in 10" :key="index">
 				<view class="item">
 					<view class="video">
 						<video src="http://localhost/1-2.mp4" controls style="width: 100%; height: 100%;"></video>
@@ -20,7 +20,7 @@
 					</view>
 				</view>
 			</span>
-			
+
 
 		</view>
 	</view>

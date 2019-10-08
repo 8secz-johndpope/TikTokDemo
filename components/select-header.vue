@@ -1,9 +1,9 @@
 <template>
 	<view class="">
 		<view class="select-header">
-			<view class="iconfont iconchahao left">
+			<navigator open-type="navigateBack" class="iconfont iconchahao left">
 
-			</view>
+			</navigator>
 			<view class="title">
 				切换城市
 			</view>
