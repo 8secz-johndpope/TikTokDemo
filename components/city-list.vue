@@ -7,7 +7,7 @@
 					自动定位
 				</view>
 				<view class="currentCity">
-					上海
+					{{cCity}}
 				</view>
 			</view>
 			<view class="box">
@@ -16,7 +16,7 @@
 					抖音热门城市
 				</view>
 				<view class="hotList">
-					<view class="item" v-for="(item,index) of hotList" :key="index">
+					<view class="item" v-for="(item,index) of hotList" :key="index" @click="clickCityName(item)">
 						{{item}}
 					</view>
 				</view>
@@ -26,7 +26,7 @@
 				<view class="initial" :id="item.initial">
 					{{item.initial}}
 				</view>
-				<view v-for="(c, i) of item.list" :key="i" class="cityName">
+				<view v-for="(c, i) of item.list" :key="i" class="cityName" @click="clickCityName(c.name)">
 					{{c.name}}
 				</view>
 			</view>
@@ -39,7 +39,8 @@
 		props: ['citys', 'letter'],
 		data() {
 			return {
-				hotList: []
+				hotList: [],
+				cCity: '上海',
 			};
 		},
 		created() {
@@ -49,7 +50,32 @@
 					this.hotList = res.data.list;
 				}
 			})
+			uni.getStorage({
+				key: 'city',
+				success: (res) => {
+					this.cCity = res.data;
+				}
+			})
 		},
+		methods: {
+			clickCityName(res) {
+				uni.setStorage({
+					key: 'city',
+					data: res,
+				});
+
+				uni.getStorage({
+					key: 'city',
+					success: (res) => {
+						this.cCity = res.data;
+					}
+				})
+
+				uni.redirectTo({
+					url: '/pages/city/city'
+				})
+			}
+		}
 	}
 </script>
 

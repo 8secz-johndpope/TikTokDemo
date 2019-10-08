@@ -2,7 +2,7 @@
 	<view class="cityContent">
 		<view class="conlation">
 			<view class="iconfont icondingwei conlation-left">
-				自动定位: 上海
+				自动定位: {{cCity}}
 			</view>
 			<navigator url="/pages/selectCity/selectCity" class="conlation-right">
 				切换 <text class="iconfont iconyoujiantou"></text>
@@ -30,8 +30,16 @@
 	export default {
 		data() {
 			return {
-
+				cCity: '上海'
 			};
+		},
+		created() {
+			uni.getStorage({
+				key: 'city',
+				success: (res) => {
+					this.cCity = res.data
+				}
+			})
 		}
 	}
 </script>

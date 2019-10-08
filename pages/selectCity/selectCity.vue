@@ -2,7 +2,7 @@
 	<view class="selectCity">
 		<select-header></select-header>
 		<alphabet :citys="citys" @change='alphabetChange'></alphabet>
-		<city-list :citys="citys" :letter="letter" ></city-list>
+		<city-list :citys="citys" :letter="letter"></city-list>
 	</view>
 </template>
 
@@ -23,7 +23,7 @@
 			}
 		},
 		methods: {
-			alphabetChange(alphabet){
+			alphabetChange(alphabet) {
 				this.letter = alphabet;
 			}
 		},

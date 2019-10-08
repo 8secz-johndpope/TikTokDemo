@@ -11,27 +11,26 @@
 	import firstNav from '../../components/first-nav.vue'
 	import cityContent from '../../components/city-content.vue'
 	export default {
-		components:{
+		components: {
 			tab,
 			firstNav,
 			cityContent
 		},
 		data() {
 			return {
-				
+
 			}
 		},
 		methods: {
-			
+
 		}
 	}
 </script>
 
 <style>
-	.city{
+	.city {
 		width: 100%;
 		height: 100%;
 		background-color: #000000;
 	}
-
 </style>

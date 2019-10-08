@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<first-nav></first-nav>
-		<video-list :list="list"></video-list>		
+		<video-list :list="list"></video-list>
 		<tab></tab>
 	</view>
 </template>
