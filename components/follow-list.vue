@@ -1,34 +1,53 @@
 <template>
-	<view class="followRoot">
-		<view class="followList">
-			<view class="item">
-				<view class="top">
-					<image src='../static/1-1.jpeg' mode="" class="img"></image>
+	<view class="followlist">
+		<view class="living">
+			<scroll-view scroll-x="true" class="livingScroll">
+				<view class="livingItem" v-for="(i, k) in 10" :key="k">
+					<image src="../static/me.jpg" class="livingImg"></image>
+					<text class="livingText">直播中</text>
+					<text class="livingAuthor">lcl{{i}}</text>
+				</view>
+			</scroll-view>
+		</view>
+		<view class="videoList">
+			<view class="videoItem">
+				<view class="authorInfo">
+					<image src="../static/me.jpg" class="authorImg"></image>
+					<text class="authorName">lcl</text>
+					<icon class="iconfont iconfenxiang share"></icon>
+				</view>
 
-					<view class="author-name">
-						张三
+				<view class="videoBox">
+					<text class="title">
+						@抖音小助手 你怎么看
+					</text>
+					<video src="http://localhost/2-3.mp4 " controls class="video" objectFit="contain"></video>
+				</view>
+				<view class="dataBox">
+					<view class="data-left">
+						<text>3小时前</text>
 					</view>
-					<view class="iconfont iconfenxiang">
+					<view class="data-right">
+						<icon class="iconfont iconaixin icon">
+							<text>赞</text>
+						</icon>
 
+						<icon class="iconfont iconpinglun icon">
+							<text>评论</text>
+						</icon>
+
+						<icon class="iconfont iconfenxiang icon">
+							<text>分享</text>
+						</icon>
 					</view>
-
-				</view>
-				<view class="title">
-
-				</view>
-				<view class="video">
-
-				</view>
-				<view class="box">
-
 				</view>
 				<view class="comment">
 
 				</view>
 			</view>
 		</view>
-		<view class="ground"></view>
 	</view>
+
 </template>
 
 <script>
@@ -42,44 +61,119 @@
 </script>
 
 <style>
-	.followRoot {
+	.followlist {
 		width: 100%;
 		height: 100%;
+		position: fixed;
+		top: 50px
 	}
 
-	.followList {
-		width: 100%;
-		height: 100%;
-		padding-top: 50px;
-	}
-
-	.item {
-		padding: 0 15px;
-	}
-
-	.top {
-		height: 50px;
+	.living {
 		padding-top: 10px;
 	}
 
+	.livingScroll {
+		width: 100%;
+		height: 110px;
+		white-space: nowrap;
+	}
 
-	.img {
+	.livingItem {
+		width: 20%;
+		display: inline-block;
+	}
+
+	.livingImg {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		margin: 10px;
+		border: 1px solid #DD524D;
+	}
+
+	.livingText {
+		position: relative;
+		font-size: 12px;
+		top: -6px;
+		left: -55px;
+		background-color: #DD524D
+	}
+
+	.livingAuthor {
+		position: relative;
+		font-size: 14px;
+		top: 14px;
+		left: -84px;
+	}
+
+	.videoItem {
+		padding: 0 15px;
+	}
+
+	.authorInfo {
+		height: 35px;
+		line-height: 35px;
+
+	}
+
+	.authorImg {
 		width: 35px;
 		height: 35px;
 		border-radius: 50%;
 		float: left;
 	}
 
-	.ground {
-		width: 100%;
-		height: 60px;
+	.authorName {
+		font-size: 16px;
+		margin-left: 10px;
+		text-align: center;
 	}
 
-	.author-name {
+	.share {
+		float: right;
+		font-size: 15px;
+		margin-right: 5px;
+	}
+
+	.videoBox {
+		width: 100%;
+		height: 370px;
+	}
+
+	.video {
+		width: 85%;
+		height: 100%;
+
+	}
+
+	.title {
+		width: 100%;
+		font-size: 13px;
+		margin-top: 25px;
+		line-height: 25px;
+	}
+
+	.dataBox {
+		height: 25px;
+		margin-top: 40px;
+		line-height: 25px;
+	}
+
+	.data-left {
 		float: left;
-		font-size: 16px;
-		height: 35px;
-		line-height: 35px;
-		margin-left: 10px;
+		font-size: 15px;
+		color: #AAAAAA;
+		font-size: 11px;
+	}
+
+	.data-right {
+		float: right;
+	}
+
+	.icon {
+		float: right;
+		font-size: 11px;
+		padding: 0 10px;
+		margin: 0 5px;
 	}
 </style>

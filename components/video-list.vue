@@ -49,7 +49,7 @@
 			touchEnd(res) {
 				this.pageEndY = res.changedTouches[0].pageY;
 
-				if (Math.abs(this.pageEndY - this.pageStartY) < 1) return; // 忽略微小滑动
+				if (Math.abs(this.pageEndY - this.pageStartY) < 0.1) return; // 忽略微小滑动
 
 				let lastIndex = this.currentIndex; // 之前的index
 

@@ -2,7 +2,7 @@
 	<view class="video-opt">
 		<view class="author-img">
 			<!-- TODO 从服务器获取头像 -->
-			<image src="../static/1-1.jpeg" mode="" class="img"></image>
+			<image src="../static/me.jpg" mode="" class="img"></image>
 			<view class="iconfont iconjiahao add" @click="star" v-show="!isStar">
 				<!-- 关注&取关按钮 -->
 			</view>

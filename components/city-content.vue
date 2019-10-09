@@ -10,13 +10,13 @@
 		</view>
 
 		<view class="video-list">
-			<span v-for="(i,index) in 10" :key="index">
+			<span v-for="(i,index) in 2" :key="index">
 				<view class="item">
 					<view class="video">
 						<video src="http://localhost/1-2.mp4" controls style="width: 100%; height: 100%;"></video>
 					</view>
 					<view class="image-box">
-						<image src="../static/1-1.jpeg" class="image"></image>
+						<image src="../static/me.jpg" class="image"></image>
 					</view>
 				</view>
 			</span>

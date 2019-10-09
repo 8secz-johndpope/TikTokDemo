@@ -1,9 +1,9 @@
 <template>
 	<view>
 		<view class="followNav">
-			<view class="iconfont iconxiangji icon">
+			<!-- <view class="iconfont iconxiangji icon">
 				<text class="xiangjitext">随拍</text>
-			</view>
+			</view> -->
 
 			<view class="middle">
 				<navigator open-type="switchTab" class="text" url="/pages/index/index">
