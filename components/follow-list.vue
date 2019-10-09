@@ -14,7 +14,7 @@
 				<view class="authorInfo">
 					<image src="../static/me.jpg" class="authorImg"></image>
 					<text class="authorName">lcl</text>
-					<icon class="iconfont iconfenxiang share"></icon>
+					<icon class="iconfont iconshenglvehao share"></icon>
 				</view>
 
 				<view class="videoBox">
@@ -42,7 +42,11 @@
 					</view>
 				</view>
 				<view class="comment">
-
+					<text class="loveNumber">1.1w评论过</text>
+					<view class="commentBox">
+						<icon class="iconfont iconqianbi" style="float: left;"></icon>
+						<input type="text" value="" placeholder="添加评论..." class="inputComment" />
+					</view>
 				</view>
 			</view>
 		</view>
@@ -131,7 +135,7 @@
 
 	.share {
 		float: right;
-		font-size: 15px;
+		font-size: 25px;
 		margin-right: 5px;
 	}
 
@@ -174,6 +178,23 @@
 		float: right;
 		font-size: 11px;
 		padding: 0 10px;
-		margin: 0 5px;
+	}
+
+	.loveNumber {
+		width: 100%;
+		height: 25px;
+		font-size: 15px;
+		line-height: 15px;
+		color: #AAAAAA;
+		margin: 10px 0;
+	}
+
+	.commentBox {
+		height: 25px;
+	}
+	
+	.inputComment{
+		margin-left: 30px;
+		font-size: 15px;
 	}
 </style>
