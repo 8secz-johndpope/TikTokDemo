@@ -1,11 +1,15 @@
 <template>
 	<view>
-		我是关注页面
+		<follow-nav></follow-nav>
 	</view>
 </template>
 
 <script>
+	import followNav from '../../components/follow-nav.vue'
 	export default {
+		components: {
+			followNav
+		},
 		data() {
 			return {
 

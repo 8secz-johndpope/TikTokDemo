@@ -1,11 +1,11 @@
 <template>
 	<view class="tab">
-		<view class="tab-box">
+		<navigator class="tab-box" open-type="switchTab" url="/pages/index/index">
 			首页
-		</view>
-		<view class="tab-box">
+		</navigator>
+		<navigator class="tab-box" open-type="switchTab" url="/pages/follow/follow">
 			关注
-		</view>
+		</navigator>
 		<view class="tab-box">
 			<view class="iconfont iconjiahao icon-box">
 			</view>
