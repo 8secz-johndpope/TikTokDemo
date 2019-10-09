@@ -10,7 +10,6 @@
 			<navigator open-type="navigate" class="text" url="/pages/city/city">
 				同城
 			</navigator>
-
 		</view>
 	</view>
 </template>
