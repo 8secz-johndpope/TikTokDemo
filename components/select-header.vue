@@ -2,7 +2,7 @@
 	<view class="">
 		<view class="select-header">
 			<navigator open-type="navigateBack" class="iconfont iconchahao left">
-
+				
 			</navigator>
 			<view class="title">
 				切换城市

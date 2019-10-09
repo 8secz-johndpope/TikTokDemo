@@ -3,7 +3,7 @@
 		<scroll-view scroll-y="true" class="scrolly" :scroll-into-view="letter">
 			<view class="box">
 				<view class="title">
-					<icon class="iconfont icondingwei" style="color: #007AFF;"></icon>
+					<icon class="iconfont icondingwei" style="color: #007AFF;"></icon>	
 					自动定位
 				</view>
 				<view class="currentCity">
@@ -12,7 +12,7 @@
 			</view>
 			<view class="box">
 				<view class="title">
-					<icon class="iconfont icondingwei" style="color: #DD524D;"></icon>
+					<icon class="iconfont iconremen" style="color: #DD524D;"></icon>
 					抖音热门城市
 				</view>
 				<view class="hotList">
