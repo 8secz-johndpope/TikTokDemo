@@ -1,15 +1,17 @@
 <template>
 	<view class="news">
 		<news-nav></news-nav>
-		xiaoxiyemian
+		<news-content></news-content>
 	</view>
 </template>
 
 <script>
 	import newsNav from '../../components/news-nav.vue'
+	import newsContent from '../../components/news-content.vue'
 	export default {
 		components: {
-			newsNav
+			newsNav,
+			newsContent,
 		},
 		data() {
 			return {
