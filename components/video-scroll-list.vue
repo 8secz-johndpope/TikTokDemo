@@ -1,19 +1,21 @@
 <template>
 	<view class="scorllList">
 		<view class="videoList">
-			<scroll-view scroll-y="true" style="height: 100%;">
+			<scroll-view scroll-y="true" style="height: 100%;" @scroll="scroll">
 				<view class="videoItem" v-for="item in list" :key="item.id">
 					<view class="authorInfo">
 						<image src="../static/me.jpg" class="authorImg"></image>
 						<text class="authorName">{{item.author}}</text>
 						<icon class="iconfont iconshenglvehao share"></icon>
 					</view>
-	
+
 					<view class="videoBox">
 						<text class="title">
 							{{item.title}}
 						</text>
-						<video :src="fullSrc(item.src)" controls class="video" objectFit="contain"></video>
+
+						<video-scroll-player :item="item" ref="player"></video-scroll-player>
+
 						<view class="music-box">
 							<view class="music">
 								{{item.musicAuthor}}@{{item.music}}
@@ -28,11 +30,11 @@
 							<icon class="iconfont iconaixin icon">
 								<text>赞</text>
 							</icon>
-	
+
 							<icon class="iconfont iconpinglun icon">
 								<text>评论</text>
 							</icon>
-	
+
 							<icon class="iconfont iconfenxiang icon">
 								<text>分享</text>
 							</icon>
@@ -52,7 +54,11 @@
 </template>
 
 <script>
+	import videoScrollPlayer from './video-scroll-player.vue'
 	export default {
+		components: {
+			videoScrollPlayer
+		},
 		props: [
 			'list'
 		],
@@ -62,14 +68,25 @@
 			};
 		},
 		methods: {
-			fullSrc(fileName) {
-				return `http://localhost/${fileName}.mp4`
-			},
 			scroll(res) {
 				const index = Math.floor(res.detail.scrollTop / 550)
+
+				if (this.isValidIndex(index)) {
+					this.$refs.player[index].play()
+				}
+
+				if (this.isValidIndex(index - 1)) {
+					this.$refs.player[index - 1].pause()
+				}
+				
+				if (this.isValidIndex(index + 1)) {
+					this.$refs.player[index + 1].pause()
+				}
+			},
+			isValidIndex(num) {
+				return num >= 0 && num < this.list.length
 			}
 		}
-
 	}
 </script>
 
@@ -113,12 +130,6 @@
 	.videoBox {
 		width: 100%;
 		height: 370px;
-	}
-
-	.video {
-		width: 85%;
-		height: 100%;
-		z-index: 5;
 	}
 
 	.music-box {
