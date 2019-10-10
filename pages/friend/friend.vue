@@ -1,25 +1,28 @@
 <template>
-	<view class="follow">
-		<follow-nav></follow-nav>
-		<follow-list :list="list"></follow-list>
+	<view class="friend">
+		<friend-nav></friend-nav>
+		<friend-list :list="list"></friend-list>
 		<tab></tab>
 	</view>
 </template>
 
 <script>
-	import followNav from '../../components/follow-nav.vue'
+	import friendNav from '../../components/friend-nav.vue'
 	import tab from '../../components/tab.vue'
-	import followList from '../../components/follow-list.vue'
+	import friendList from '../../components/friend-list.vue'
 	export default {
 		components: {
-			followNav,
+			friendNav,
 			tab,
-			followList,
+			friendList,
 		},
 		data() {
 			return {
 				list: []
 			}
+		},
+		methods: {
+
 		},
 		onLoad() {
 			uni.request({
@@ -29,17 +32,15 @@
 				}
 			})
 		},
-		methods: {
-
-		}
 	}
 </script>
 
 <style>
-	.follow {
-		background: #000000;
-		color: #FFFFFF;
+	.friend {
 		width: 100%;
 		height: 100%;
+		background-color: #000000;
+		font-size: 15px;
+		color: #FFFFFF;
 	}
 </style>

@@ -1,17 +1,15 @@
 <template>
 	<view>
 		<view class="followNav">
-			<!-- <view class="iconfont iconxiangji icon">
-				<text class="xiangjitext">随拍</text>
-			</view> -->
-
 			<view class="middle">
-				<navigator open-type="switchTab" class="text" url="/pages/follow/follow" style="border-bottom: 2px solid #F0AD4E;">
+				<navigator open-type="switchTab" class="text" url="/pages/follow/follow">
 					关注
 				</navigator>
-				<navigator open-type="switchTab" class="text" url="/pages/friend/friend">
+				<navigator open-type="switchTab" class="text" url="/pages/friend/friend" style="border-bottom: 2px solid #F0AD4E;">
 					好友
 				</navigator>
+				
+				<!-- TODO 好友列表 -->
 			</view>
 		</view>
 	</view>

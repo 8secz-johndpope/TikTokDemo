@@ -1,14 +1,5 @@
 <template>
 	<view class="followlist">
-		<view class="living">
-			<scroll-view scroll-x="true" class="livingScroll">
-				<view class="livingItem" v-for="(i, k) in 10" :key="k">
-					<image src="../static/me.jpg" class="livingImg"></image>
-					<text class="livingText">直播中</text>
-					<text class="livingAuthor">lcl{{i}}</text>
-				</view>
-			</scroll-view>
-		</view>
 		<view class="videoList">
 			<scroll-view scroll-y="true" style="height: 100%;">
 				<view class="videoItem" v-for="item in list" :key="item.id">
@@ -85,44 +76,6 @@
 		height: 100%;
 		position: fixed;
 		top: 50px
-	}
-
-	.living {
-		padding-top: 10px;
-	}
-
-	.livingScroll {
-		width: 100%;
-		height: 110px;
-		white-space: nowrap;
-	}
-
-	.livingItem {
-		width: 20%;
-		display: inline-block;
-	}
-
-	.livingImg {
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		margin: 10px;
-		border: 1px solid #DD524D;
-	}
-
-	.livingText {
-		position: relative;
-		font-size: 12px;
-		top: -6px;
-		left: -55px;
-		background-color: #DD524D
-	}
-
-	.livingAuthor {
-		position: relative;
-		font-size: 14px;
-		top: 14px;
-		left: -84px;
 	}
 
 	.videoItem {

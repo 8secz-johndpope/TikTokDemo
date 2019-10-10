@@ -29,7 +29,6 @@
 					this.list = res.data.list;
 				}
 			})
-
 		},
 		methods: {
 

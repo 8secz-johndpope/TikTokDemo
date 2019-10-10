@@ -1,6 +1,10 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/friend/friend",
+			"style": {}
+		},
+		{
 			"path": "pages/follow/follow",
 			"style": {}
 		},
@@ -18,6 +22,7 @@
 			"path": "pages/city/city",
 			"style": {}
 		}
+
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
@@ -27,12 +32,14 @@
 		"navigationStyle": "custom"
 	},
 	"tabBar": {
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/index/index"
 			},
 			{
 				"pagePath": "pages/follow/follow"
+			},
+			{
+				"pagePath": "pages/friend/friend"
 			}
 		]
 	}
