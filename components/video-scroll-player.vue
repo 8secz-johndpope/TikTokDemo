@@ -1,6 +1,8 @@
 <template>
 	<view class="player">
-		<video id="myVideo" :src="fullSrc(item.src)" class="video" objectFit="contain" loop="true">
+		<video id="myVideo" :src="fullSrc(item.src)" class="video" objectFit="contain" loop="true" :controls="false">
+			<cover-view class="iconfont icon iconbofang" @click="click" v-show="!isPlaying"></cover-view>
+			<cover-view class="iconfont icon iconzanting" @click="click" v-show="isPlaying"></cover-view>
 		</video>
 	</view>
 </template>
@@ -8,12 +10,12 @@
 <script>
 	export default {
 		props: [
-			'item'
+			'item',
+			'index'
 		],
 		data() {
 			return {
-
-
+				isPlaying: false,
 			};
 		},
 		methods: {
@@ -21,15 +23,30 @@
 				return `http://localhost/${fileName}.mp4`
 			},
 			play() {
-				this.videoContext.play()
+				if (!this.isPlaying) {
+					this.videoContext.play()
+					this.isPlaying = true
+				}
 			},
 			pause() {
-				this.videoContext.pause()
+				if (this.isPlaying) {
+					this.videoContext.pause()
+					this.isPlaying = false
+				}
+			},
+			click() {
+				if (this.isPlaying) {
+					this.pause()
+				} else {
+					this.play()
+				}
 			}
 		},
 		onReady() {
 			this.videoContext = uni.createVideoContext('myVideo', this)
-			console.log(this.videoContext)
+			if (this.index == 0) {
+				this.play()
+			}
 		}
 	}
 </script>
@@ -44,5 +61,13 @@
 		width: 85%;
 		height: 100%;
 		z-index: 5;
+		position: relative;
+	}
+
+	.icon {
+		position: absolute;
+		bottom: 5px;
+		right: 10px;
+		font-size: 20px;
 	}
 </style>

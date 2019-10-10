@@ -2,7 +2,7 @@
 	<view class="scorllList">
 		<view class="videoList">
 			<scroll-view scroll-y="true" style="height: 100%;" @scroll="scroll">
-				<view class="videoItem" v-for="item in list" :key="item.id">
+				<view class="videoItem" v-for="(item,index) in list" :key="item.id">
 					<view class="authorInfo">
 						<image src="../static/me.jpg" class="authorImg"></image>
 						<text class="authorName">{{item.author}}</text>
@@ -14,7 +14,7 @@
 							{{item.title}}
 						</text>
 
-						<video-scroll-player :item="item" ref="player"></video-scroll-player>
+						<video-scroll-player :item="item" ref="player" :index="index"></video-scroll-player>
 
 						<view class="music-box">
 							<view class="music">
@@ -55,6 +55,8 @@
 
 <script>
 	import videoScrollPlayer from './video-scroll-player.vue'
+
+	let timer
 	export default {
 		components: {
 			videoScrollPlayer
@@ -64,27 +66,34 @@
 		],
 		data() {
 			return {
-
+				index: 0
 			};
 		},
 		methods: {
 			scroll(res) {
-				const index = Math.floor(res.detail.scrollTop / 550)
+				clearTimeout(timer)
+				timer = setTimeout(() => {
+					this.index = Math.floor(res.detail.scrollTop / 550)
+				}, 300);
 
-				if (this.isValidIndex(index)) {
-					this.$refs.player[index].play()
-				}
-
-				if (this.isValidIndex(index - 1)) {
-					this.$refs.player[index - 1].pause()
-				}
-				
-				if (this.isValidIndex(index + 1)) {
-					this.$refs.player[index + 1].pause()
-				}
 			},
 			isValidIndex(num) {
 				return num >= 0 && num < this.list.length
+			}
+		},
+		watch: {
+			index() {
+				if (this.isValidIndex(this.index)) {
+					this.$refs.player[this.index].play()
+				}
+
+				for (let i = this.index - 5; i < this.index + 5; i++) {
+					if (i != this.index) {
+						if (this.isValidIndex(i)) {
+							this.$refs.player[i].pause()
+						}
+					}
+				}
 			}
 		}
 	}
