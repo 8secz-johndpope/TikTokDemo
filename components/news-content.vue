@@ -36,23 +36,27 @@
 		</view>
 
 		<view class="messages">
-			<view class="item">
+			<view class="item" v-for="item in list" :key="item.id">
 				<view class="authorImgBox">
 					<image class="authorImg" src="../static/me.jpg"></image>
 				</view>
 				<view class="msgText">
 					<view class="top">
 						<view class="name">
-							张三
+							{{item.name}}
 						</view>
 						<view class="time">
-							周三
+							{{item.time}}
 						</view>
 					</view>
 					<view class="content">
-						你好，很高兴认识你
+						{{item.content}}
 					</view>
 				</view>
+			</view>
+
+			<view class="more">
+				没有更多消息了
 			</view>
 		</view>
 	</view>
@@ -62,7 +66,25 @@
 	export default {
 		data() {
 			return {
-
+				list: [{
+						id: 1,
+						name: '张三',
+						time: '13分钟前',
+						content: '你好，我也喜欢这个'
+					},
+					{
+						id: 2,
+						name: '李四',
+						time: '1小时前',
+						content: '6666666666'
+					},
+					{
+						id: 3,
+						name: '王五',
+						time: '昨天',
+						content: '牛逼啊'
+					}
+				]
 			};
 		}
 	}
@@ -95,6 +117,12 @@
 		font-size: 13px;
 	}
 
+	.messages {
+		width: 100%;
+		height: 100%;
+		float: left;
+	}
+
 	.img {
 		width: 40px;
 		height: 40px;
@@ -105,12 +133,14 @@
 
 	.item {
 		height: 60px;
+		width: 100%;
 		margin: 15px 10px;
 	}
 
 	.authorImgBox {
 		float: left;
 		margin-left: 10px;
+		width: 20%;
 	}
 
 	.authorImg {
@@ -122,10 +152,9 @@
 	.msgText {
 		margin-left: 20px;
 		height: 50px;
-		width: 75%;
+		width: 80%;
 		text-align: left;
 		font-size: 13px;
-		float: left;
 	}
 
 	.top {
@@ -149,5 +178,15 @@
 		line-height: 25px;
 		font-size: 13px;
 		color: #AAAAAA;
+		float: left;
+	}
+
+	.more {
+		width: 100%;
+		height: 50px;
+		font-size: 12px;
+		color: #AAAAAA;
+		text-align: center;
+		float: left;
 	}
 </style>
