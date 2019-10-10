@@ -10,9 +10,9 @@
 			<view class="iconfont iconjiahao icon-box">
 			</view>
 		</view>
-		<view class="tab-box">
+		<navigator class="tab-box" open-type="switchTab" url="/pages/news/news">
 			消息
-		</view>
+		</navigator>
 		<view class="tab-box">
 			我
 		</view>
