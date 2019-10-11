@@ -13,9 +13,9 @@
 		<navigator class="tab-box" open-type="switchTab" url="/pages/news/news">
 			消息
 		</navigator>
-		<view class="tab-box">
+		<navigator class="tab-box" open-type="switchTab" url="/pages/personal/personal">
 			我
-		</view>
+		</navigator>
 	</view>
 </template>
 

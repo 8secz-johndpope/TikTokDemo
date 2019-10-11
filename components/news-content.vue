@@ -3,7 +3,7 @@
 		<view class="btns">
 			<view class="imgBtn">
 				<view class="imgBox">
-					<image src="../static/me.jpg" class="img"></image>
+					<image src="../static/fans.jpg" class="img"></image>
 				</view>
 				<view class="text">
 					粉丝
@@ -11,7 +11,7 @@
 			</view>
 			<view class="imgBtn">
 				<view class="imgBox">
-					<image src="../static/me.jpg" class="img"></image>
+					<image src="../static/love.jpg" class="img"></image>
 				</view>
 				<view class="text">
 					点赞
@@ -19,7 +19,7 @@
 			</view>
 			<view class="imgBtn">
 				<view class="imgBox">
-					<image src="../static/me.jpg" class="img"></image>
+					<image src="../static/dong.jpg" class="img"></image>
 				</view>
 				<view class="text">
 					@我的
@@ -27,7 +27,7 @@
 			</view>
 			<view class="imgBtn">
 				<view class="imgBox">
-					<image src="../static/me.jpg" class="img"></image>
+					<image src="../static/comment.jpg" class="img"></image>
 				</view>
 				<view class="text">
 					评论
