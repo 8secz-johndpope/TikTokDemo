@@ -2,7 +2,8 @@
 	<view class="">
 		<view class="personal-list">
 			<view class="item">
-				<video :controls="false" src="http://localhost/2-2.mp4" class="video" objectFit="cover"></video>
+				<!-- TODO loop=true src=uni.request autoplay -->
+				<video :controls="false" src="http://localhost/2-1.mp4" class="video" objectFit="cover"></video>
 				<view class="love-box">
 					<text class="iconfont iconaixin_empty">12w</text>
 				</view>
@@ -10,19 +11,19 @@
 			<view class="item">
 				<video :controls="false" src="http://localhost/2-2.mp4" class="video" objectFit="cover"></video>
 				<view class="love-box">
-					<text class="iconfont iconaixin_empty">12w</text>
+					<text class="iconfont iconaixin_empty">10w</text>
 				</view>
 			</view>
 			<view class="item">
-				<video :controls="false" src="http://localhost/2-2.mp4" class="video" objectFit="cover"></video>
+				<video :controls="false" src="http://localhost/2-3.mp4" class="video" objectFit="cover"></video>
 				<view class="love-box">
-					<text class="iconfont iconaixin_empty">12w</text>
+					<text class="iconfont iconaixin_empty">2w</text>
 				</view>
 			</view>
 			<view class="item">
-				<video :controls="false" src="http://localhost/2-2.mp4" class="video" objectFit="cover"></video>
+				<video :controls="false" src="http://localhost/1-2.mp4" class="video" objectFit="cover"></video>
 				<view class="love-box">
-					<text class="iconfont iconaixin_empty">12w</text>
+					<text class="iconfont iconaixin_empty">8w</text>
 				</view>
 			</view>
 

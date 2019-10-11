@@ -7,9 +7,9 @@
 			<view class="person-img-box">
 				<image class="person-img" src="../static/me.jpg"></image>
 			</view>
-			<view class="change">
+			<navigator class="change" url="/pages/changeInfo/changeInfo" open-type="navigate">
 				编辑资料
-			</view>
+			</navigator>
 		</view>
 		<view class="name-box">
 			<view class="name">
@@ -47,13 +47,13 @@
 			</view>
 		</view>
 		<view class="option-box">
-			<view class="option">
+			<view class="option" :style="style1" @click="click(1)">
 				作品
 			</view>
-			<view class="option">
+			<view class="option" :style="style2" @click="click(2)">
 				动态
 			</view>
-			<view class="option">
+			<view class="option" :style="style3" @click="click(3)">
 				喜欢
 			</view>
 		</view>
@@ -61,11 +61,37 @@
 </template>
 
 <script>
+	const style = 'border-bottom: 3px solid #F0AD4E'
 	export default {
 		data() {
 			return {
-
+				style1: '',
+				style2: '',
+				style3: style
 			};
+		},
+		methods: {
+			click(res) {
+				switch (res) {
+					case 1:
+						this.style1 = style;
+						this.style2 = '';
+						this.style3 = '';
+						break
+					case 2:
+						this.style1 = '';
+						this.style2 = style;
+						this.style3 = '';
+						break
+					case 3:
+						this.style1 = '';
+						this.style2 = '';
+						this.style3 = style;
+						break
+					default:
+						break
+				}
+			}
 		}
 	}
 </script>
