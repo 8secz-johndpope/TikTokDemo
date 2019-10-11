@@ -1,6 +1,6 @@
 <template>
 	<view class="player">
-		<video id="myVideo" :src="fullSrc(item.src)" class="video" objectFit="contain" loop="true" :controls="false">
+		<video id="myVideo" :src="item.src" class="video" objectFit="contain" loop="true" :controls="false">
 			<cover-view class="iconfont icon iconbofang" @click="click" v-show="!isPlaying"></cover-view>
 			<cover-view class="iconfont icon iconzanting" @click="click" v-show="isPlaying"></cover-view>
 		</video>
@@ -19,9 +19,6 @@
 			};
 		},
 		methods: {
-			fullSrc(fileName) {
-				return `http://localhost/${fileName}.mp4`
-			},
 			play() {
 				if (!this.isPlaying) {
 					this.videoContext.play()

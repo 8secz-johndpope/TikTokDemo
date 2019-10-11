@@ -1,7 +1,7 @@
 {
 	"list": [{
 			"id": 1,
-			"src": "2-1",
+			"src": "http://vd4.bdstatic.com/mda-jitvr1yzpqafuecs/mda-jitvr1yzpqafuecs.mp4",
 			"author": "张三",
 			"title": "我爱学习",
 			"loveNumber": 123,
@@ -13,7 +13,7 @@
 		
 		{
 			"id": 2,
-			"src": "2-2",
+			"src": "http://vd4.bdstatic.com/mda-jj9dyew1qjf0n2ax/sc/mda-jj9dyew1qjf0n2ax.mp4",
 			"author": "李四",
 			"title": "我爱吃饭",
 			"loveNumber": 234,
@@ -24,7 +24,7 @@
 		},
 		{
 			"id": 3,
-			"src": "2-3",
+			"src": "http://vd2.bdstatic.com/mda-jj2ekynfehepwyvw/sc/mda-jj2ekynfehepwyvw.mp4",
 			"author": "王二",
 			"title": "我爱睡觉",
 			"loveNumber": 999,

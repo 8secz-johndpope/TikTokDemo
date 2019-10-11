@@ -1,6 +1,6 @@
 <template>
 	<view class="video-player">
-		<video id="myVideo" :src="fullSrc(videoItem.src)" @click='click' :controls="false" class="video" :loop="false"
+		<video id="myVideo" :src="videoItem.src" @click='click' :controls="false" class="video" :loop="false"
 		 :autoplay="autoplay">
 		</video>
 	</view>
@@ -26,9 +26,6 @@
 			}
 		},
 		methods: {
-			fullSrc(fileName) {
-				return `http://localhost/${fileName}.mp4`
-			},
 
 			play(restart = false) {
 				if (restart) {

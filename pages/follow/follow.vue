@@ -10,6 +10,7 @@
 	import followNav from '../../components/follow-nav.vue'
 	import tab from '../../components/tab.vue'
 	import followList from '../../components/follow-list.vue'
+	import videoJson from '../../server_file/videos.json'
 	export default {
 		components: {
 			followNav,
@@ -22,12 +23,15 @@
 			}
 		},
 		onLoad() {
-			uni.request({
-				url: 'http://localhost/videos.json',
-				success: (res) => {
-					this.list = res.data.list;
-				}
-			})
+			// uni.request({
+			// 	url: 'http://localhost/videos.json',
+			// 	success: (res) => {
+			// 		this.list = res.data.list;
+			// 	}
+			// })
+			
+			this.list = videoJson.list
+			
 		},
 		methods: {
 

@@ -35,6 +35,7 @@
 </template>
 
 <script>
+	import hotCityJson from '../server_file/hot_city.json'
 	export default {
 		props: ['citys', 'letter'],
 		data() {
@@ -44,12 +45,13 @@
 			};
 		},
 		created() {
-			uni.request({
-				url: "http://localhost/hot_city.json",
-				success: (res) => {
-					this.hotList = res.data.list;
-				}
-			})
+			// uni.request({
+			// 	url: "http://localhost/hot_city.json",
+			// 	success: (res) => {
+			// 		this.hotList = res.data.list;
+			// 	}
+			// })
+			this.hotList = hotCityJson.list;
 			uni.getStorage({
 				key: 'city',
 				success: (res) => {

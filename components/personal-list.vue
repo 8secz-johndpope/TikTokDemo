@@ -1,32 +1,12 @@
 <template>
 	<view class="">
 		<view class="personal-list">
-			<view class="item">
-				<!-- TODO loop=true src=uni.request autoplay -->
-				<video :controls="false" src="http://localhost/2-1.mp4" class="video" objectFit="cover"></video>
+			<view class="item" v-for="item in list" :key="item.id">
+				<video :controls="false" :src="item.src" class="video" objectFit="cover" autoplay="true" loop="true"></video>
 				<view class="love-box">
-					<text class="iconfont iconaixin_empty">12w</text>
+					<text class="iconfont iconaixin_empty">{{item.loveNumber}}</text>
 				</view>
 			</view>
-			<view class="item">
-				<video :controls="false" src="http://localhost/2-2.mp4" class="video" objectFit="cover"></video>
-				<view class="love-box">
-					<text class="iconfont iconaixin_empty">10w</text>
-				</view>
-			</view>
-			<view class="item">
-				<video :controls="false" src="http://localhost/2-3.mp4" class="video" objectFit="cover"></video>
-				<view class="love-box">
-					<text class="iconfont iconaixin_empty">2w</text>
-				</view>
-			</view>
-			<view class="item">
-				<video :controls="false" src="http://localhost/1-2.mp4" class="video" objectFit="cover"></video>
-				<view class="love-box">
-					<text class="iconfont iconaixin_empty">8w</text>
-				</view>
-			</view>
-
 		</view>
 		<view class="more">
 			没有更多了
@@ -38,11 +18,15 @@
 </template>
 
 <script>
+	import videoJson from '../server_file/videos.json'
 	export default {
 		data() {
 			return {
-
+				list:[]
 			};
+		},
+		onLoad(){
+			this.list = videoJson.list;
 		}
 	}
 </script>

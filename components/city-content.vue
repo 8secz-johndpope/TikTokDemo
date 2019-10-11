@@ -13,7 +13,7 @@
 			<span v-for="(i,index) in 2" :key="index">
 				<view class="item">
 					<view class="video">
-						<video src="http://localhost/1-2.mp4" controls style="width: 100%; height: 100%;"></video>
+						<video src="http://vd2.bdstatic.com/mda-jj2ekynfehepwyvw/sc/mda-jj2ekynfehepwyvw.mp4" controls style="width: 100%; height: 100%;"></video>
 					</view>
 					<view class="image-box">
 						<image src="../static/me.jpg" class="image"></image>

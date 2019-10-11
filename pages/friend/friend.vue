@@ -10,6 +10,8 @@
 	import friendNav from '../../components/friend-nav.vue'
 	import tab from '../../components/tab.vue'
 	import friendList from '../../components/friend-list.vue'
+	import videoJson from '../../server_file/videos.json'
+
 	export default {
 		components: {
 			friendNav,
@@ -25,12 +27,13 @@
 
 		},
 		onLoad() {
-			uni.request({
-				url: 'http://localhost/videos.json',
-				success: (res) => {
-					this.list = res.data.list;
-				}
-			})
+			// uni.request({
+			// 	url: 'http://localhost/videos.json',
+			// 	success: (res) => {
+			// 		this.list = res.data.list;
+			// 	}
+			// })
+			this.list = videoJson.list
 		},
 	}
 </script>

@@ -95,7 +95,6 @@
 					sourceType: ['album', 'camera'],
 					sizeType: ['orignial', 'compressed'],
 					success: (res) => {
-						console.log(JSON.stringify(res.tempFilePaths));
 						this.src = res.tempFilePaths
 					}
 				})

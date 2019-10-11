@@ -10,6 +10,8 @@
 	import selectHeader from '../../components/select-header.vue'
 	import cityList from '../../components/city-list.vue'
 	import alphabet from '../../components/alphabet.vue'
+	import cityJson from '../../server_file/city.json'
+	
 	export default {
 		components: {
 			selectHeader,
@@ -28,12 +30,13 @@
 			}
 		},
 		created() {
-			uni.request({
-				url: "http://localhost/city.json",
-				success: (res) => {
-					this.citys = res.data.city;
-				}
-			})
+			// uni.request({
+			// 	url: "http://localhost/city.json",
+			// 	success: (res) => {
+			// 		this.citys = res.data.city;
+			// 	}
+			// })
+			this.citys = cityJson.city
 		}
 	}
 </script>
