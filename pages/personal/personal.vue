@@ -1,6 +1,7 @@
 <template>
 	<view class="personal">
 		<personal-info></personal-info>
+		<personal-list></personal-list>
 		<tab></tab>
 	</view>
 </template>
@@ -8,10 +9,12 @@
 <script>
 	import tab from '../../components/tab.vue'
 	import personalInfo from '../../components/personal-info.vue'
+	import personalList from '../../components/personal-list.vue'
 	export default {
 		components: {
 			tab,
-			personalInfo
+			personalInfo,
+			personalList,
 		},
 		data() {
 			return {
