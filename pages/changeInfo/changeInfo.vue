@@ -1,12 +1,12 @@
 <template>
 	<view class="change-info">
 		<view class="nav-box">
-			<view class="iconfont iconfanhui icon-nav"></view>
+			<navigator class="iconfont iconfanhui icon-nav" open-type="switchTab" url="/pages/personal/personal"></navigator>
 			<view class="title">编辑个人资料</view>
 		</view>
 		<view class="box">
 			<view class="img-box">
-				<image src="../../static/me.jpg" mode="" class="img"></image>
+				<image :src="src" mode="" class="img" @click="changeImg"></image>
 				<view class="text">
 					点击更换头像
 				</view>
@@ -75,11 +75,21 @@
 	export default {
 		data() {
 			return {
-
+				src: '../../static/me.jpg'
 			}
 		},
 		methods: {
-
+			changeImg() {
+				uni.chooseImage({
+					count: 1,
+					sourceType: ['album', 'camera'],
+					sizeType: ['orignial', 'compressed'],
+					success: (res) => {
+						console.log(JSON.stringify(res.tempFilePaths));
+						this.src = res.tempFilePaths
+					}
+				})
+			}
 		}
 	}
 </script>
