@@ -32,13 +32,15 @@
 				</view>
 			</view>
 			<view class="text-box">
-				<view class="left">
-					学校
-				</view>
-				<view class="iconfont iconyoujiantou icon-info"></view>
-				<view class="right">
-					ustc
-				</view>
+				<picker :range="schoolList" @change="bindSchoolChange">
+					<view class="left">
+						学校
+					</view>
+					<view class="iconfont iconyoujiantou icon-info"></view>
+					<view class="right">
+						{{user.school}}
+					</view>
+				</picker>
 			</view>
 			<view class="text-box">
 				<view class="left">
@@ -59,13 +61,16 @@
 				</view>
 			</view>
 			<view class="text-box">
-				<view class="left">
-					地区
-				</view>
-				<view class="iconfont iconyoujiantou icon-info"></view>
-				<view class="right">
-					上海
-				</view>
+				<picker mode="region" @change="bindCityChange">
+					<view class="left">
+						地区
+					</view>
+					<view class="iconfont iconyoujiantou icon-info"></view>
+					<view class="right">
+						{{user.city}}
+					</view>
+				</picker>
+
 			</view>
 		</view>
 	</view>
@@ -75,7 +80,12 @@
 	export default {
 		data() {
 			return {
-				src: '../../static/me.jpg'
+				src: '../../static/me.jpg',
+				user: {
+					school: '中国科学技术大学',
+					city: '上海'
+				},
+				schoolList: ['北京大学', '清华大学', '复旦大学', '上海交通大学', '中国科学技术大学']
 			}
 		},
 		methods: {
@@ -89,7 +99,35 @@
 						this.src = res.tempFilePaths
 					}
 				})
+			},
+			bindSchoolChange(res) {
+				this.user.school = this.schoolList[res.target.value];
+				uni.setStorage({
+					key: 'school',
+					data: this.schoolList[res.target.value]
+				})
+			},
+			bindCityChange(res) {
+				this.user.city = res.target.value[0]; // 只到省
+				uni.setStorage({
+					key: 'city',
+					data: res.target.value[0]
+				})
 			}
+		},
+		onLoad() {
+			uni.getStorage({
+				key: 'school',
+				success: (res) => {
+					this.user.school = res.data
+				}
+			})
+			uni.getStorage({
+				key: 'city',
+				success: (res) => {
+					this.user.city = res.data
+				}
+			})
 		}
 	}
 </script>
