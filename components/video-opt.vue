@@ -2,7 +2,9 @@
 	<view class="video-opt">
 		<view class="author-img">
 			<!-- TODO 从服务器获取头像 -->
-			<image src="../static/me.jpg" mode="" class="img"></image>
+			<navigator  open-type="switchTab" url="/pages/personal/personal">				
+				<image src="../static/me.jpg" mode="" class="img"></image>
+			</navigator>
 			<view class="iconfont iconjiahao add" @click="star" v-show="!isStar">
 				<!-- 关注&取关按钮 -->
 			</view>
@@ -69,6 +71,7 @@
 		margin-top: 10px;
 		font-size: 33px;
 		color: #FFFFFF;
+		z-index: 8;
 	}
 
 	.number {
