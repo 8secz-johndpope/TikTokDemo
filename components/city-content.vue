@@ -1,13 +1,13 @@
 <template>
 	<view class="cityContent">
-		<view class="conlation">
+		<navigator class="conlation" url="/pages/selectCity/selectCity">
 			<view class="iconfont icondingwei conlation-left">
 				自动定位: {{cCity}}
 			</view>
 			<navigator url="/pages/selectCity/selectCity" class="conlation-right">
 				切换 <text class="iconfont iconyoujiantou"></text>
 			</navigator>
-		</view>
+		</navigator>
 
 		<view class="video-list">
 			<span v-for="(i,index) in 2" :key="index">
