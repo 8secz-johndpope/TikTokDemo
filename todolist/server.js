@@ -2,14 +2,18 @@ const koa = require('koa');
 const Router = require('koa-router');
 const co = require('co');
 const koaSwig = require('koa-swig');
-const koaStaticCache = require('koa-static-cache')
+const koaStaticCache = require('koa-static-cache');
+const koaBodyParser = require('koa-bodyparser')
 
 const app = new koa();
 const router = new Router();
 
+app.use(koaBodyParser())
+
 // 数据存在内存中
 let datas = {
 	appName: "todoList",
+	maxId:3,
 	list: [
 		{id: 1,name: "铅笔",number: 12,price: 1},
 		{id: 2,name: "笔记本",number: 3,price: 2},
@@ -41,9 +45,37 @@ router.get('/', async ctx => {
 });
 
 // 添加
-router.get('/add', ctx => {
-	ctx.body = '添加'
+router.get('/add', async ctx => {
+	ctx.body = await ctx.render('add.html', {
+		appName: datas.appName
+	});
 });
+
+// 处理提交上来的商品数据
+// GET方式使用querystring  即 ctx.query
+router.get('/postData', ctx => {
+	let { name, price, number } = ctx.query;
+	ctx.body = `${name} ${price} ${number}`;
+})
+
+// 注意post方式要用ctx.request.body
+// 需要引入 koaBodyParser  中间件
+router.post('/postData', async ctx => {
+	let { name, price, number } = ctx.request.body;
+	// ctx.body = `${name} ${price} ${number}`;
+	
+	datas.list.push({
+		id : ++datas.maxId,
+		name,
+		price,
+		number
+	})
+	
+	ctx.body = await ctx.render('message.html', {
+		appName : datas.appName, 
+		msg: '添加成功',
+		href: '/'});
+})
 
 // 修改
 router.get('/change/:id', ctx => {

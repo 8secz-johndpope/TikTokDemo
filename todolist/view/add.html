@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{appName}}</title>
+	</head>
+	<body>
+		<h1>{{appName}}</h1>
+		
+		<hr />
+		
+		<!-- method中的提交方式要与路由中的相对应 -->
+		<!-- 我们可以通过url中的querystring 传递地址以外的内容 -->
+		<!-- 这里类似 postData?name=a&price=b&number=c -->
+		<!-- 当我们通过表单发送一个请求的时候 -->
+		<!-- 如果method是GET时， 会把表单中的数据通过表单name=表单值得形式 -->
+		<!-- 添加到地址?后面，并用&链接 -->
+		
+		<!-- url 长度有限， querystring也有限制，所以一般不用get提交数据，而用post-->
+		<form action="/postData" method="GET">
+			商品名称: <input type="text" value="" name="name"/>
+			商品价格: <input type="text" value="" name="price"/>
+			商品库存: <input type="text" value="" name="number"/>
+			<button>提交</button>
+		</form>
+		
+		
+		<form action="/postData" method="POST">
+			商品名称: <input type="text" value="" name="name"/>
+			商品价格: <input type="text" value="" name="price"/>
+			商品库存: <input type="text" value="" name="number"/>
+			<button>提交</button>
+		</form>
+	
+	</body>
+</html>
