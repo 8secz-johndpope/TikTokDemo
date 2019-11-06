@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="/static/css/index.css"/>
+		<title>前端渲染</title>
+	</head>
+	<body>
+		<div id="app">
+			<hi>todolist</hi>
+				<div >
+					商品名称<input type="text" name="name" id="name" value="" />
+					商品价格<input type="text" name="name" id="name" value="" />
+					商品数量<input type="text" name="name" id="name" value="" />
+					
+					<button type="button">确认修改</button>
+				</div>
+			<ul>
+				<li v-for="item in list"> 
+					<span class="app" v-if="item.number > 10">{{item.name}} -- {{item.price}} -- {{item.number}}</span>
+					<span class="app2" v-else>{{item.name}} -- {{item.price}} -- {{item.number}}</span>
+					<button type="button" @click="change"> 修改</button>
+
+				</li>
+			</ul>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			// var button = document.querySelector('button');
+			// button.onclick = function(){
+			// 	fetch('/').then(res=>{
+			// 		return res.text();
+			// 	}).then(data=>{
+			// 		console.log(data);
+			// 	})
+			// }
+			
+			new Vue({
+				el:"#app",
+				data:{
+					list:[],
+					show:false,
+				},
+				created() {
+					// 页面初始化完成执行
+					// 发送一个请求,请求商品列表
+					fetch('/list').then(res=>{
+						return res.json();
+					}).then(data=>{
+						if(data.code == 0){
+							this.list = data.list;
+						}
+					})
+				},
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>
