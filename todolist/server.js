@@ -78,13 +78,49 @@ router.post('/postData', async ctx => {
 })
 
 // 修改
-router.get('/change/:id', ctx => {
-	ctx.body = '修改' + ctx.params.id
+router.get('/change/:id', async ctx => {
+	// ctx.body = '修改' + ctx.params.id
+	let data = {}
+	datas.list.forEach( item => {
+		if(item.id  == ctx.params.id ){
+			data = item;		
+		}
+	});
+	ctx.body = await ctx.render('change.html', {
+		appName: datas.appName,
+		data
+	})
 });
 
+// 修改数据
+router.post('/changeInfo/:id', async ctx => {
+	let { name, price, number } = ctx.request.body;
+	// ctx.body = `${name} ${price} ${number}`;
+	let index = datas.list.findIndex(data=>data.id == ctx.params.id);
+	datas.list[index] = {
+		id:ctx.params.id,
+		name,
+		price,
+		number
+	}
+	
+	ctx.body = await ctx.render('message.html',{
+		appName:datas.appName,
+		msg:"修改成功",
+		href:'/'
+	})
+});
+
+
 // 删除
-router.get('/remove/:id', ctx => {
-	ctx.body = '删除' + ctx.params.id
+router.get('/remove/:id', async ctx => {
+	datas.list = datas.list.filter(item=>item.id!=ctx.params.id);
+	
+	ctx.body = await ctx.render('message.html',{
+		appName:datas.appName,
+		msg:"删除成功",
+		href:'/'
+	})
 });
 
 app.use(router.routes())

@@ -13,11 +13,13 @@
 			
 			{% if item.number >4 %}
 			<li class="app"> {{item.id}} -- {{item.name}} -- {{item.price}}--{{item.number}}</li>
-			<a> -1 </a>
-			<a> +1 </a>
-			<a> 删除 </a>
+			
+			<a href="/change/{{item.id}}"> 修改 </a>
+			<a href="/remove/{{item.id}}"> 删除 </a>
 			{% else %}
 			<li class="app2"> {{item.id}} -- {{item.name}} -- {{item.price}}--{{item.number}}</li>
+			<a href="/change/{{item.id}}"> 修改 </a>
+			<a href="/remove/{{item.id}}"> 删除 </a>
 			{% endif %}
 			{% endfor %}
 		</ul>
