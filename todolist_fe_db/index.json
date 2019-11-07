@@ -1,0 +1,24 @@
+{
+	"appName": "todoList",
+	"maxId": 3,
+	"list": [{
+			"id": 1,
+			"name": "铅笔",
+			"number": 12,
+			"price": 1
+		},
+		{
+			"id": 2,
+			"name": "笔记本",
+			"number": 3,
+			"price": 2
+		},
+		{
+			"id": 3,
+			"name": "橡皮",
+			"number": 20,
+			"price": 0.5
+		}
+	],
+	"color": "index.css"
+}

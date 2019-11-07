@@ -1,8 +1,8 @@
 const koa = require('koa');
 const Router = require('koa-router');
 const koaStaticCache = require('koa-static-cache');
-const bodyParser = require('koa-bodyparser')
-
+const bodyParser = require('koa-bodyparser');
+const fs = require('fs');
 
 const app = new koa();
 
@@ -14,30 +14,8 @@ app.use(koaStaticCache('./static', {
 app.use(bodyParser())
 
 
-let datas = {
-	appName: "todoList",
-	maxId: 3,
-	list: [{
-			id: 1,
-			name: "铅笔",
-			number: 12,
-			price: 1
-		},
-		{
-			id: 2,
-			name: "笔记本",
-			number: 3,
-			price: 2
-		},
-		{
-			id: 3,
-			name: "橡皮",
-			number: 20,
-			price: 0.5
-		},
-	],
-	color: 'index.css',
-}
+// 使用index.json 进行数据持久化
+let datas = JSON.parse(fs.readFileSync('./index.json'));
 
 
 // 通过服务器请求拿到一个基础页面。后续的操作就不需要浏览器发送请求了。
@@ -81,35 +59,39 @@ router.post('/change', async ctx => {
 		data: datas.list
 	}
 
+
+	fs.writeFileSync('./index.json', JSON.stringify(datas));
 })
 
 // 添加商品
 router.post('/add', async ctx => {
 	let data = ctx.request.body;
 	data.id = ++datas.maxId;
-	
-	
+
+
 	datas.list.push(data);
-	
+
 	ctx.body = {
 		code: 0,
 		data: datas.list
 	}
 
+	fs.writeFileSync('./index.json', JSON.stringify(datas));
 })
 
 
 // 删除商品
 router.post('/del', async ctx => {
-	let data = ctx.request.body;	
-	
+	let data = ctx.request.body;
+
 	datas.list = datas.list.filter(d => d.id != data.id)
-	
+
 	ctx.body = {
 		code: 0,
 		data: datas.list
 	}
 
+	fs.writeFileSync('./index.json', JSON.stringify(datas));
 })
 
 
