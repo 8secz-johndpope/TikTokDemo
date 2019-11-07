@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/liuchangling/TikTokDemo/issues"
   },
-  "homepage": "https://github.com/liuchangling/TikTokDemo#readme"
+  "homepage": "https://github.com/liuchangling/TikTokDemo#readme",
+  "dependencies": {
+    "mysql2": "^2.0.0"
+  }
 }

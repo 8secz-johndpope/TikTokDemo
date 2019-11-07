@@ -15,6 +15,8 @@ app.use(bodyParser())
 
 
 // 使用index.json 进行数据持久化
+// 文件持久化的问题：一个修改就会修改一次文件，效率低下。
+// 面临频繁改动的数据，不适用json文件管理，一般用数据库。
 let datas = JSON.parse(fs.readFileSync('./index.json'));
 
 
