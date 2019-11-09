@@ -2,31 +2,160 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>use mysql</title>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" type="text/css" href="/static/css/index.css" />
+		<title>前端渲染</title>
 	</head>
 	<body>
 		<div id="app">
-			<h1>todolist</h1>
-			<hr />
+			<hi>todolist</hi>
+			<div v-if="show == 1 || show == 2">
+				商品名称<input type="text" v-model="name" />
+				商品价格<input type="text" v-model="price" />
+				商品数量<input type="text" v-model="number" />
+
+				<button type="button" @click="submit" v-if="show ==1">确认修改</button>
+				<button type="button" @click="submitAdd" v-if="show ==2">确认增加</button>
+				<button type="button" @click="close">关闭</button>
+			</div>
+			<button type="button" @click="add">添加商品</button>
+
 			<ul>
-				<li v-for="item in list">{{item.id}} -- {{item.name}} -- {{item.number}} -- {{item.price}}</li>
+				<li v-for="item in list">
+					<span class="app" v-if="item.number > 10">{{item.name}} -- {{item.price}} -- {{item.number}}</span>
+					<span class="app2" v-else>{{item.name}} -- {{item.price}} -- {{item.number}}</span>
+					<button type="button" @click="change(item.id)"> 修改</button>
+					<button type="button" @click="del(item.id)"> 删除</button>
+
+				</li>
 			</ul>
 		</div>
 
+
+
 		<script type="text/javascript">
+			// var button = document.querySelector('button');
+			// button.onclick = function(){
+			// 	fetch('/').then(res=>{
+			// 		return res.text();
+			// 	}).then(data=>{
+			// 		console.log(data);
+			// 	})
+			// }
+
 			new Vue({
-				el: '#app',
+				el: "#app",
 				data: {
-					list: []
+					list: [],
+					show: 0,
+					name: '',
+					price: '',
+					number: '',
+					id: -1,
 				},
 				created() {
-					fetch('/list')
-						.then(res => res.json())
-						.then(data => {
+					// 页面初始化完成执行
+					// 发送一个请求,请求商品列表
+					this.getData();
+				},
+				methods: {
+					getData(){
+						fetch('/list').then(res => {
+							return res.json();
+						}).then(data => {
+							// if (data.code == 0) {
+							// 	this.list = data.list;
+							// }
 							this.list = data.data;
-							console.log(data.data);
 						})
+					},
+					// 修改
+					change(id) {
+						this.show = 1;
+						this.id = id;
+					},
+					
+					// 删除
+					del(id) {
+						this.show = 0;
+						fetch('/del', {
+							method: "post",
+							body: JSON.stringify({
+								id
+							}),
+							headers: {
+								'Content-Type': 'application/json;charset=utf-8'
+							}
+						}).then(res => {
+							return res.json()
+						}).then(data => {
+							this.getData()
+						})
+					},
+
+					close() {
+						this.show = 0;
+					},
+
+					// 提交
+					submit() {
+						let {
+							id,
+							name,
+							number,
+							price
+						} = this.$data;
+
+						fetch('/change', {
+							method: "post",
+							body: JSON.stringify({
+								id,
+								name,
+								price,
+								number
+							}),
+							headers: {
+								'Content-Type': 'application/json;charset=utf-8'
+							}
+						}).then(res => {
+							return res.json()
+						}).then(data => {
+							this.list = data.data;
+							this.getData();
+						})
+					},
+
+					add() {
+						this.show = 2;
+					},
+					
+					submitAdd(){
+						let {
+							name,
+							number,
+							price
+						} = this.$data;
+						
+						console.log(name,number, price);
+						
+						fetch('/add', {
+							method: "post",
+							body: JSON.stringify({
+								name,
+								price,
+								number
+							}),
+							headers: {
+								'Content-Type': 'application/json;charset=utf-8'
+							}
+						}).then(res => {
+							return res.json()
+						}).then(data => {
+							console.log(data.data);
+							this.getData();
+						})
+					}
+
 				}
 			})
 		</script>
