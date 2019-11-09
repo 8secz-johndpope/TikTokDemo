@@ -1,7 +1,7 @@
 {
 	"list": [{
 			"id": 1,
-			"src": "http://localhost/2-1.mp4",
+			"src": "2-1",
 			"author": "张三",
 			"title": "我爱学习",
 			"loveNumber": 123,
@@ -13,18 +13,18 @@
 		
 		{
 			"id": 2,
-			"src": "http://localhost/2-2.mp4",
+			"src": "2-2",
 			"author": "李四",
 			"title": "我爱吃饭",
 			"loveNumber": 234,
 			"commentNumber": 666,
 			"shareNumber": 12,
 			"music": "我真的好饿",
-			"musicAuthor": "洛天依"
+			"musicAuthor": "初音"
 		},
 		{
 			"id": 3,
-			"src": "http://localhost/2-3.mp4",
+			"src": "2-3",
 			"author": "王二",
 			"title": "我爱睡觉",
 			"loveNumber": 999,
