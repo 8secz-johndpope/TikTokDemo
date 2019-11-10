@@ -95,7 +95,24 @@
 					sourceType: ['album', 'camera'],
 					sizeType: ['orignial', 'compressed'],
 					success: (res) => {
-						this.src = res.tempFilePaths
+						const tempFilePath = res.tempFilePaths
+						this.src = tempFilePath;
+						
+						console.log(this.src);
+						uni.uploadFile({
+							url:'http://127.0.0.1:8080/upload',
+							filePath:tempFilePath[0],
+							name:'file',
+							formData:{
+								'name':'头像.jpg',
+								'type':'img',
+								
+							},
+							success:(uploadFileRes)=>{
+								console.log(11111111111);
+								console.log(uploadFileRes.data);
+							}
+						})
 					}
 				})
 			},
