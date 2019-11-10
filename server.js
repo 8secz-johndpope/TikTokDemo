@@ -31,6 +31,16 @@ async function run(){
 		ctx.body = data
 	})
 	
+	router.get('/video', async ctx=>{
+		// 这里未限制数量，如果数据多会有问题的
+		// let [data] = await connection.query("select * from videos");
+		let [data] = await connection.query("select * from videos limit 0,3");
+		ctx.body = {
+			code: 0,
+			data,
+		}
+	})
+	
 	app.use(router.routes());
 	app.listen(8080)
 }
