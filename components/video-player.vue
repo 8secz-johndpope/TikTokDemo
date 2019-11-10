@@ -1,7 +1,6 @@
 <template>
 	<view class="video-player">
-		<video id="myVideo" :src="videoItem.src" @click='click' :controls="false" class="video" :loop="false"
-		 :autoplay="autoplay">
+		<video id="myVideo" :src="path(videoItem.src)" @click='click' :controls="false" class="video" :loop="false" :autoplay="autoplay">
 		</video>
 	</view>
 </template>
@@ -26,7 +25,6 @@
 			}
 		},
 		methods: {
-
 			play(restart = false) {
 				if (restart) {
 					this.videoContext.seek(0) // 跳转至开头播放
@@ -55,6 +53,11 @@
 
 					this.isDblClick = true;
 				}, 300);
+			},
+			
+			path(src) {
+				// 如果不是用数据库的话，要改下这个path
+				return `http://localhost:8080/static/video/${src}.mp4`
 			}
 		},
 		onReady() {

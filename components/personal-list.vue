@@ -18,7 +18,7 @@
 </template>
 
 <script>
-	import videoJson from '../server_file/videos.json'
+	import getServerData from '../getServerData.js'
 	export default {
 		data() {
 			return {
@@ -26,7 +26,9 @@
 			};
 		},
 		onLoad(){
-			this.list = videoJson.list;
+			getServerData('json/videos.json', 'list').then(value => {
+				this.list = value
+			})
 		}
 	}
 </script>

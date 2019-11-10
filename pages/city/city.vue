@@ -2,14 +2,16 @@
 	<view class="city">
 		<tab></tab>
 		<first-nav></first-nav>
-		<city-content></city-content>
+		<city-content :list="list"></city-content>
 	</view>
 </template>
 
 <script>
 	import tab from '../../components/tab.vue'
 	import firstNav from '../../components/first-nav.vue'
-	import cityContent from '../../components/city-content.vue'
+	import cityContent from '../../components/city-content.vue'	
+	import getServerData from '../../getServerData.js'
+	
 	export default {
 		components: {
 			tab,
@@ -18,8 +20,13 @@
 		},
 		data() {
 			return {
-
+				list: [],
 			}
+		},
+		onLoad() {
+			getServerData('json/videos.json', 'list').then(value => {
+				this.list = value
+			})
 		},
 		methods: {
 

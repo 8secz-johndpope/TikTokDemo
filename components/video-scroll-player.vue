@@ -1,6 +1,6 @@
 <template>
 	<view class="player">
-		<video id="myVideo" :src="item.src" class="video" objectFit="contain" loop="true" :controls="false">
+		<video id="myVideo" :src="path(item.src)" class="video" objectFit="contain" loop="true" :controls="false">
 			<cover-view class="iconfont icon iconbofang" @click="click" v-show="!isPlaying"></cover-view>
 			<cover-view class="iconfont icon iconzanting" @click="click" v-show="isPlaying"></cover-view>
 		</video>
@@ -37,6 +37,11 @@
 				} else {
 					this.play()
 				}
+			},
+
+			path(src) {
+				// 如果不是用数据库的话，要改下这个path
+				return `http://localhost:8080/static/video/${src}.mp4`
 			}
 		},
 		onReady() {

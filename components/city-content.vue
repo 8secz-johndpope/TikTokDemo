@@ -10,24 +10,25 @@
 		</navigator>
 
 		<view class="video-list">
-			<span v-for="(i,index) in 2" :key="index">
+			<span v-for="(item,index) in list" :key="index">
 				<view class="item">
 					<view class="video">
-						<video src="http://vd2.bdstatic.com/mda-jj2ekynfehepwyvw/sc/mda-jj2ekynfehepwyvw.mp4" controls style="width: 100%; height: 100%;"></video>
+						<video :src="path(item.src)" controls style="width: 100%; height: 100%;"></video>
 					</view>
 					<view class="image-box">
 						<image src="../static/me.jpg" class="image"></image>
 					</view>
 				</view>
 			</span>
-
-
 		</view>
 	</view>
 </template>
 
 <script>
 	export default {
+		props: [
+			"list"
+		],
 		data() {
 			return {
 				cCity: '上海'
@@ -40,6 +41,12 @@
 					this.cCity = res.data
 				}
 			})
+		},
+		methods:{
+			path(src) {
+				// 如果不是用数据库的话，要改下这个path
+				return `http://localhost:8080/static/video/${src}.mp4`
+			}
 		}
 	}
 </script>

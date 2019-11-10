@@ -10,8 +10,8 @@
 	import tab from '../../components/tab.vue'
 	import firstNav from '../../components/first-nav.vue'
 	import videoList from '../../components/video-list.vue'
-	import videoJson from '../../server_file/videos.json'
-	
+	import getServerData from '../../getServerData.js'
+
 	export default {
 		components: {
 			tab,
@@ -25,14 +25,9 @@
 			}
 		},
 		onLoad() {
-			// uni.request({
-			// 	url: 'http://localhost/videos.json',
-			// 	success: (res) => {
-			// 		this.list = res.data.list;
-			// 	}
-			// })
-			console.log(videoJson);
-			this.list = videoJson.list;
+			getServerData('json/videos.json', 'list').then(value => {
+				this.list = value
+			})
 		},
 		methods: {
 
