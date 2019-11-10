@@ -10,7 +10,7 @@
 	import followNav from '../../components/follow-nav.vue'
 	import tab from '../../components/tab.vue'
 	import followList from '../../components/follow-list.vue'
-	import getServerData from '../../getServerData.js'
+	import {getVideoJson} from '../../getServerData.js'
 	
 	export default {
 		components: {
@@ -24,7 +24,7 @@
 			}
 		},
 		onLoad() {
-			getServerData('json/videos.json', 'list').then(value => {
+			getVideoJson().then(value => {
 				this.list = value
 			});
 		},
