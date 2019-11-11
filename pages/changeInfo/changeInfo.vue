@@ -80,7 +80,7 @@
 	export default {
 		data() {
 			return {
-				src: '../../static/me.jpg',
+				src: 'http://127.0.0.1:8080/static/img/头像.jpg',
 				user: {
 					school: '中国科学技术大学',
 					city: '上海'
@@ -105,8 +105,7 @@
 							name:'file',
 							formData:{
 								'name':'头像.jpg',
-								'type':'img',
-								
+								'type':'img'
 							},
 							success:(uploadFileRes)=>{
 								console.log(11111111111);
