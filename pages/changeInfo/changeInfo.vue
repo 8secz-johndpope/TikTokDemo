@@ -89,32 +89,51 @@
 			}
 		},
 		methods: {
-			changeImg() {
-				uni.chooseImage({
-					count: 1,
-					sourceType: ['album', 'camera'],
-					sizeType: ['orignial', 'compressed'],
+			changeImg() { // 演示上传视频接口
+				uni.chooseVideo({
 					success: (res) => {
-						const tempFilePath = res.tempFilePaths
-						this.src = tempFilePath;
-						
-						console.log(this.src);
+						const tempFilePath = res.tempFilePath
 						uni.uploadFile({
 							url:'http://127.0.0.1:8080/upload',
-							filePath:tempFilePath[0],
+							filePath:tempFilePath,
 							name:'file',
 							formData:{
-								'name':'头像.jpg',
-								'type':'img'
+								'name':'上传.mp4',
+								'type':'video'
 							},
 							success:(uploadFileRes)=>{
-								console.log(11111111111);
 								console.log(uploadFileRes.data);
 							}
 						})
 					}
 				})
 			},
+			// changeImg() {
+			// 	uni.chooseImage({
+			// 		count: 1,
+			// 		sourceType: ['album', 'camera'],
+			// 		sizeType: ['orignial', 'compressed'],
+			// 		success: (res) => {
+			// 			const tempFilePath = res.tempFilePaths
+			// 			this.src = tempFilePath;
+						
+			// 			console.log(this.src);
+			// 			uni.uploadFile({
+			// 				url:'http://127.0.0.1:8080/upload',
+			// 				filePath:tempFilePath[0],
+			// 				name:'file',
+			// 				formData:{
+			// 					'name':'头像.jpg',
+			// 					'type':'img'
+			// 				},
+			// 				success:(uploadFileRes)=>{
+			// 					console.log(11111111111);
+			// 					console.log(uploadFileRes.data);
+			// 				}
+			// 			})
+			// 		}
+			// 	})
+			// },
 			bindSchoolChange(res) {
 				this.user.school = this.schoolList[res.target.value];
 				uni.setStorage({
