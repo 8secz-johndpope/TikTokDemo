@@ -16,19 +16,16 @@ async function run() {
 		prefix: '/static',
 		gzip: true
 	}))
-	
-	console.log(multiparty);
-	
-	
+		
 	app.use(bodyParser());
 
 	app.use(koaBody({
 		multiparty: true,
 		encoding: 'gzip',
 		formidable: {
-			maxFieldsSize: 20 * 1024 * 1024 // 设置文件上传最大大小
+			maxFieldsSize: 20 * 1024 * 1024 // 设置文件上传最大大小20M
 		},
-		keepExtensions: true
+		keepExtensions: true // 保持后缀
 	}))
 
 
@@ -62,12 +59,28 @@ async function run() {
 	})
 
 	// 文件上传接口
-	router.post('upload', multiparty(), async ctx => {
-		const {
-			name,
-			type
-		} = ctx.request.body;
-		console.log(name, type);
+	router.post('/upload', multiparty(), async ctx => {
+		// 注意multiparty用的是req  而非request
+		
+		// 获取form data中的数据
+		const { name,type } = ctx.req.body;
+		
+		// 获取文件和文件路径
+		const file = ctx.req.files.file
+		const path = file.path
+		
+		// 根据文件地址创建文件的输入流
+		const fileReader = fs.createReadStream(path)
+		
+		// 定义文件存储路径
+		const fileDir = `${__dirname}/static/${type}`
+		
+		// 此处省略判断路径是否存在
+		const filePath = `${fileDir}/${name}`
+		// 创建输出流
+		const fileWrite = fs.createWriteStream(filePath)
+		// 写入文件数据
+		fileReader.pipe(fileWrite);
 	})
 
 	app.use(router.routes());
